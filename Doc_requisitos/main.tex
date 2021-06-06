@@ -1,0 +1,179 @@
+\documentclass[notitlepage, draft]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[most]{tcolorbox}
+\usepackage{framed}
+\usepackage{makeidx}
+\usepackage[brazil]{babel}
+%\pagestyle{empty}
+%Define color serve para definir uma cor que não esteja já adicionada à um dos pacotes utilizados.Esse pode ser HTML, RGB(0-255), cmyk, gray e rgb(0-1).
+\definecolor{textGray}{RGB}{230, 230, 230}
+\definecolor{backGray}{RGB}{252, 252, 252}
+\pagecolor{backGray}
+
+
+\usepackage{geometry} %Formatação da página.
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+ }
+
+\tcbset{ 
+    frame code={}
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback= textGray,
+    %colback define a cor que será utilizada por trás do texto quando chamado o comando \begin{tcolorbox} // \end{tcolorbox}
+    colframe=white,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=0mm,
+    boxsep=5pt,
+    arc=0pt,outer arc=0pt,
+    }%Esse comando define a formatação do campo dentro do tcolorbox. 
+    % tcbset = T Color Box Set.
+    
+    
+
+
+\title{\textbf{SGLZ} - Sistema de Gerenciamento Lojão do Zé}
+
+
+\begin{document}
+    \date{}
+    \maketitle
+
+\vspace{15cm}
+
+\begin{tabular}{|p{10.5 cm}|p{4.5 cm}|}
+    \hline
+    \multicolumn{2}{|c|}{Grupo} \\
+    \hline
+    Nome Completo & Matrícula \\
+    \hline
+    (NOME)  & (MATRÍCULA) \\
+    (NOME)  & (MATRÍCULA) \\
+    (NOME)  & (MATRÍCULA) \\
+    (NOME)  & (MATRÍCULA) \\
+    (NOME)  & (MATRÍCULA) \\
+    \hline
+\end{tabular}
+    
+    
+    \newpage
+    
+    
+    \tableofcontents
+    % \tableofcontents faz o sumário do documento.
+    
+
+
+    
+    \newpage %Pula para a próxima página 
+    
+    \section{Introdução}
+        \subsection{Propósito}
+    O propósito do Documento de Especificação de Requisitos é delinear os requisitos do software a ser construído, descrevendo suas funcionalidades e características. O público alvo do documento são clientes, gerentes e desenvolvedores do projeto.
+    
+        \subsection{Escopo}
+    O Sistema de Gerenciamento Lojão do Zé auxiliará o processo de gerenciamento de clientes, vendas, estoque e funcionários da empresa, visando sua agilização, bem como a facilitação do acesso aos dados e aumento de sua confiabilidade.
+    
+        \subsection{Definições e Abreviações}
+        
+            \begin{itemize}
+            
+                \item \textbf{SGLZ:} nome dado ao Sistema de Gerenciamento Lojão do Zé;
+         
+                \item \textbf{RF}: requisito funcional;
+     
+                \item \textbf{RNF}: requisito não funcional;
+     
+                \item \textbf{Administrador}: usuário do sistema com acesso às ferramentas de gerenciamento de produtos, estoque e funcionários, além das ferramentas disponíveis aos vendedores. Tem acesso total ao sistema;
+     
+                \item \textbf{Usuário do sistema}: usuário do sistema, seja ele administrador ou vendedor;
+    
+            \end{itemize} 
+    
+        \subsection{Visão Geral do Documento}
+        
+            \begin{itemize}
+            
+                \item \textbf{Seção 2  - Descrição Geral:} apresenta uma visão geral do sistema, especificando a perspectiva do produto e detalhamento do escopo do sistema através da discretização das funções do produto. Além disso, são explicitadas as características gerais dos usuários do produto e as restrições que poderão limitar as possibilidades de desenvolvimento.
+        
+                \item \textbf{Seção 3  - Descrição dos Requisitos Funcionais (RF):} apresentação de todos os requisitos funcionais do sistema. Descreve as principais ações do produto, considerando a aceitação e processamento das entradas e o processamento e geração das saídas.
+        
+                \item \textbf{Seção 4  - Requisitos Não Funcionais:} apresentação de todos os requisitos não funcionais do sistema. Descreve todos os aspectos qualitativos do sistema, explicitando os detalhes de facilidade de uso, manutenibilidade, confiabilidade, desempenho, segurança, distribuição, adequação a padrões e requisitos de hardware e software.
+                
+            \end{itemize}
+    
+    \newpage
+    
+    \section{Descrição Geral}
+    
+        \subsection{Perpectivas do Produtos}
+             O sistema é desenhado para ser executado em servidor Web remoto. Para que o usuário acesse o sistema, é necessário ter um computador ou dispositivo móvel com acesso à internet e a um navegador (ex: Chrome, Firefox, Internet Explorer etc.). A interação com o sistema se dará por interface gráfica.
+    
+        \subsection{Funções do Produto}
+            %.\begin{itemize}  \item  \end{itemize} cria uma listagem de itens.
+            \begin{itemize}
+                    \item Função Exemplo;
+            \end{itemize}
+    
+        \subsection{Restrições}
+            O sistema deve ser desenvolvido com os recursos disponíveis na plataforma Web.
+    
+    \newpage
+    
+    \section{Descrição dos Requisitos Funcionais (RF)}
+    
+        \begin{table}[H] %O H faz com que a tabela se posicione de acordo com a posição dela no código. Esse tipo de alinhamento é encontrado dentro do pacote: \usepackge{float}
+        %O comando  \begin{tcolorbox} // \end{tcolorbox} faz a coloração por trás do texto.
+        
+            \begin{tcolorbox}
+                \textbf{RF001 – Requisito Funcional de Exemplo}
+            \end{tcolorbox}
+    
+            \quad Descrição do Requisito Funcional de Exemplo.
+            %\quad cria um pequeno espaço antes de começar o texto.
+        \end{table}
+        
+        \begin{table}[H]
+        
+            \begin{tcolorbox}
+                \textbf{RF002 – Cadastrar Usuário}
+            \end{tcolorbox}
+
+
+            \quad O sistema deve cadastrar um usuário com os dados: \textbf{Id, senha, nome, e-mail, endereço (cidade, estado e cep), CPF, telefone, Complemento} e \textbf{tipo}.
+        \end{table}
+ 
+    \newpage
+    
+    \section{Descrição dos Requisitos Não Funcionais (RNF)}
+    
+        \begin{table}[H] 
+        
+            \begin{tcolorbox}
+                \textbf{RNF001 – Requisito não Funcional de Exemplo}
+            \end{tcolorbox}
+        
+            \quad Descrição do Requisito não Funcional de Exemplo.
+            
+        \end{table}
+        
+        \begin{table}[H]
+            \begin{tcolorbox}
+                \textbf{RNF002 – Tempo de Resposta das listagens}
+            \end{tcolorbox}
+
+            \quad O tempo de resposta das listagens não deve ser superior a dois segundos.
+
+        \end{table}
+
+\end{document}
