@@ -1,16 +1,23 @@
 # calendario
 
-calendario gamificado
+Nessa primeira parte eu tentei organizar as classes e widgets do projeto da seguinte forma:
 
-## Getting Started
+##paginas
 
-This project is a starting point for a Flutter application.
+-atividades.dart && calendario.dart &&** disciplinas.dart && perfil.dart :
+--Tem as classes e widgets pra pagina com o mesmo titulo do nome do arquivo
 
-A few resources to get you started if this is your first Flutter project:
+##banco de dados
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+-db.dart:
+-- contem os metodos de leitura e escrita no banco de dados da aplicação
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+##dados do usuario
+
+-evento.dart:
+--contem as classes que definem os objetos que armazenam as informações de cada evento adicionado pelo usuario
+
+##elementos de interface de usuario
+
+-reutilizaveis.dart:
+--contem widgets de interface de usuario que são reutilizados em diversos locais do aplicativo
