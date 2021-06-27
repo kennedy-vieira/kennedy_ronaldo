@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'calendario.dart';
 import 'perfil.dart';
 
+//Esse aquivo contem metodos com funções que retornam metodos de UI
+//que serão utilizados em toda a aplicação
 
 // drawer que contem as opções do aplicativo
 

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/classes/event.dart';
 
-//a classe NovoEvento substitui a classe Event do pacote calendar_carrousel e inlcui atributos especificos da nossa aplicação
+//a classe NovoEvento substitui a classe Event do pacote calendar_carrousel e
+// inlcui atributos especificos da nossa aplicação
 // como uma disciplina a qual evento é relacionado e um valor de prioridade
 
 class NovoEvento implements EventInterface {

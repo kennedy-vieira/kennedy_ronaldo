@@ -5,6 +5,9 @@ import 'reutilizaveis.dart';
 import 'db.dart';
 import 'evento.dart';
 
+// Disciplinas e _Disciplinas State são para a pagina que exibe a lista de
+//disciplinas
+
 class Disciplinas extends StatefulWidget {
   @override
   _DisciplinasState createState() => _DisciplinasState();
@@ -30,7 +33,22 @@ class _DisciplinasState extends State<Disciplinas> {
 
   @override
   Widget build(BuildContext context) {
-    //carregaLista();
+    carregaLista(); //não tenho certeza se precisa chamar esse metodo aqui
+
+    //se não existir nenhuma atividade a lista vai ser vazia
+    //caso for vazia
+    if(lista.isEmpty){
+      return Scaffold(
+        appBar: AppBar(
+          title: Text('Disciplinas'),
+        ),
+        endDrawer: gaveta(context),
+        body: Center(
+          child: Text('Tente inserir uma atividade primeiro'),
+        )
+      );
+    }
+    // caso lista não for vazia
     return Scaffold(
       appBar: AppBar(
         title: Text('Disciplinas'),
@@ -53,5 +71,6 @@ class _DisciplinasState extends State<Disciplinas> {
         ),
       ),
     );
-  }
+
+ }
 }

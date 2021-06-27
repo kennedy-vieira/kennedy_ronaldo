@@ -7,6 +7,8 @@ import 'package:sqflite/sqflite.dart';
 
 import 'evento.dart';
 
+// a classe Db contem todos os metodos para ler e escrever no banco de dados
+//local da aplicação
 class Db {
   String createTableComando = 'CREATE TABLE eventos (date INTEGER,'
       'title TEXT,icon TEXT,dot TEXT,disciplina TEXT,prioridade INTEGER,id '

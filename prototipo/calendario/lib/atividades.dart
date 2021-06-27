@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'reutilizaveis.dart';
 import 'db.dart';
 
+//classe NovaAtividade e _NovaAtividadeState são para a pagina de adicionar uma
+// nova atividade
 class NovaAtividade extends StatefulWidget {
   @override
   _NovaAtividadeState createState() => _NovaAtividadeState();
@@ -16,6 +18,9 @@ class _NovaAtividadeState extends State<NovaAtividade> {
   TextEditingController _disciplina = TextEditingController();
   TextEditingController _prioridade = TextEditingController();
   List<NovoEvento>? lista;
+
+  /*
+  // acredito que esse metodo não seja mais necessario
 
   Future<void> ashowDialog(BuildContext context) async {
     return showDialog<void>(
@@ -33,6 +38,8 @@ class _NovaAtividadeState extends State<NovaAtividade> {
               ],
             ));
   }
+  */
+
 
   @override
   Widget build(BuildContext context) {
@@ -150,6 +157,8 @@ class _NovaAtividadeState extends State<NovaAtividade> {
   }
 }
 
+//classes ListaAtividade  e _ListaAtividadesState são para pagina que lista as
+//atividades
 class ListaAtividades extends StatefulWidget {
   @override
   _ListaAtividadesState createState() => _ListaAtividadesState();
@@ -168,6 +177,25 @@ class _ListaAtividadesState extends State<ListaAtividades> {
   @override
   Widget build(BuildContext context) {
     carregaLista();
+    if(lista.isEmpty){
+      return Scaffold(
+        appBar: AppBar(
+          title: Text('Atividades'),
+        ),
+        endDrawer: gaveta(context),
+        body: Center(
+          child: Text('Tente usar o botão "+" para inserir uma nova atividade'),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => NovaAtividade()));
+          },
+          child: const Icon(Icons.add),
+        ),
+      );
+    }
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Atividades'),

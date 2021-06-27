@@ -12,6 +12,7 @@ import 'atividades.dart';
 import 'db.dart';
 
 
+// classe Calendario e _CalendarioState são para a pagina calendario
 
 class Calendario extends StatefulWidget {
   Calendario({Key? key, required this.title,}) : super(key: key);
@@ -40,7 +41,7 @@ class _CalendarioState extends State<Calendario>  {
   );
 
 
-
+  //lista que contem os eventos a serem marcados no calendario
   EventList<NovoEvento> _markedDateMap = new EventList<NovoEvento>(events: {}, );
 
   void _carregaEventos() async {
