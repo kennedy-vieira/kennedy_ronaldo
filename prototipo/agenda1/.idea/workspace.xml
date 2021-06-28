@@ -23,79 +23,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39c84504-3453-45e7-b1a7-a48e57d77c5c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../agenda/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/.metadata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/kotlin/com/example/agenda2/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/res/drawable-v21/launch_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/res/values-night/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/profile/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/android/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Flutter/Debug.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Flutter/Release.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/AppDelegate.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Runner-Bridging-Header.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/lib/atividade.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/lib/buffDebuff.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/lib/conquista.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/lib/dataBase.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/lib/disciplina.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/lib/interfaceAtividade.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/lib/interfaceDisciplina.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/lib/main.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/lib/usuario.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/lib/utilitarios.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/pubspec.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/pubspec.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../agenda/test/widget_test.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -145,7 +72,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624852377886</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Implementado add atividade">
+      <created>1624907247846</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1624907247846</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,33 +96,34 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add versão 2 do projeto" />
-    <option name="LAST_COMMIT_MESSAGE" value="add versão 2 do projeto" />
+    <MESSAGE value="Implementado add atividade" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementado add atividade" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="172" y="134" width="1648" height="846" key="AVDManager" timestamp="1624905038287">
+    <state x="172" y="134" width="1648" height="846" key="AVDManager" timestamp="1624908576452">
       <screen x="72" y="34" width="1848" height="1046" />
     </state>
-    <state x="172" y="134" width="1648" height="846" key="AVDManager/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624905038287" />
+    <state x="172" y="134" width="1648" height="846" key="AVDManager/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624908576452" />
     <state x="726" y="258" width="530" height="605" key="FileChooserDialogImpl" timestamp="1624856685709">
       <screen x="72" y="34" width="1848" height="1046" />
     </state>
     <state x="726" y="258" width="530" height="605" key="FileChooserDialogImpl/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624856685709" />
-    <state width="1792" height="259" key="GridCell.Tab.0.bottom" timestamp="1624906672923">
+    <state width="1792" height="259" key="GridCell.Tab.0.bottom" timestamp="1624908666889">
       <screen x="72" y="34" width="1848" height="1046" />
     </state>
-    <state width="1792" height="259" key="GridCell.Tab.0.bottom/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624906672923" />
-    <state width="1792" height="259" key="GridCell.Tab.0.center" timestamp="1624906672923">
+    <state width="1792" height="259" key="GridCell.Tab.0.bottom/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624908666889" />
+    <state width="1792" height="259" key="GridCell.Tab.0.center" timestamp="1624908666889">
       <screen x="72" y="34" width="1848" height="1046" />
     </state>
-    <state width="1792" height="259" key="GridCell.Tab.0.center/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624906672923" />
-    <state width="1792" height="259" key="GridCell.Tab.0.left" timestamp="1624906672923">
+    <state width="1792" height="259" key="GridCell.Tab.0.center/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624908666889" />
+    <state width="1792" height="259" key="GridCell.Tab.0.left" timestamp="1624908666889">
       <screen x="72" y="34" width="1848" height="1046" />
     </state>
-    <state width="1792" height="259" key="GridCell.Tab.0.left/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624906672923" />
-    <state width="1792" height="259" key="GridCell.Tab.0.right" timestamp="1624906672923">
+    <state width="1792" height="259" key="GridCell.Tab.0.left/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624908666889" />
+    <state width="1792" height="259" key="GridCell.Tab.0.right" timestamp="1624908666889">
       <screen x="72" y="34" width="1848" height="1046" />
     </state>
-    <state width="1792" height="259" key="GridCell.Tab.0.right/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624906672923" />
+    <state width="1792" height="259" key="GridCell.Tab.0.right/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624908666889" />
     <state x="476" y="243" width="1030" height="635" key="IDE.errors.dialog" timestamp="1624852183883">
       <screen x="72" y="34" width="1848" height="1046" />
     </state>
