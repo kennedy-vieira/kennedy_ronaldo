@@ -1,3 +1,0 @@
-class BuffDebuff{
-  var id;
-}

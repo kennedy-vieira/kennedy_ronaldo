@@ -23,162 +23,86 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39c84504-3453-45e7-b1a7-a48e57d77c5c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.metadata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/kotlin/com/example/agenda2/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/drawable-v21/launch_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/values-night/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/profile/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/Debug.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Flutter/Release.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/AppDelegate.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Runner-Bridging-Header.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/atividade.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/buffDebuff.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/conquista.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/dataBase.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/disciplina.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/interfaceAtividade.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/interfaceDisciplina.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/usuario.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utilitarios.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/widget_test.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/.metadata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/app/src/main/kotlin/com/kennedy_ronaldo/calendario/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/app/src/main/res/drawable-v21/launch_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/app/src/main/res/values-night/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/app/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/app/src/profile/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/android/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Flutter/Debug.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Flutter/Release.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/AppDelegate.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/ios/Runner/Runner-Bridging-Header.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/lib/atividades.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/lib/calendario.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/lib/db.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/lib/disciplinas.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/lib/evento.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/lib/main.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/lib/perfil.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/lib/reutilizaveis.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/pubspec.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/pubspec.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/test/widget_test.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/web/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/web/icons/Icon-192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/web/icons/Icon-512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/web/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../calendario/web/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/.metadata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/kotlin/com/example/agenda2/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/res/drawable-v21/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/res/values-night/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/app/src/profile/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Flutter/Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Flutter/Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/AppDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/ios/Runner/Runner-Bridging-Header.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/lib/atividade.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/lib/buffDebuff.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/lib/conquista.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/lib/dataBase.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/lib/disciplina.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/lib/interfaceAtividade.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/lib/interfaceDisciplina.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/lib/main.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/lib/usuario.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/lib/utilitarios.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/pubspec.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../agenda/test/widget_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@/home/kennedy/.android/avd/Pixel_3a_API_30_x86.avd]" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
@@ -192,7 +116,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../agenda" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -241,38 +165,38 @@
     <option name="LAST_COMMIT_MESSAGE" value="add versão 2 do projeto" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="172" y="134" width="1648" height="846" key="AVDManager" timestamp="1624856687738">
+    <state x="172" y="134" width="1648" height="846" key="AVDManager" timestamp="1624905038287">
       <screen x="72" y="34" width="1848" height="1046" />
     </state>
-    <state x="172" y="134" width="1648" height="846" key="AVDManager/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624856687738" />
+    <state x="172" y="134" width="1648" height="846" key="AVDManager/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624905038287" />
     <state x="726" y="258" width="530" height="605" key="FileChooserDialogImpl" timestamp="1624856685709">
       <screen x="72" y="34" width="1848" height="1046" />
     </state>
     <state x="726" y="258" width="530" height="605" key="FileChooserDialogImpl/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624856685709" />
-    <state width="1792" height="259" key="GridCell.Tab.0.bottom" timestamp="1624856687646">
+    <state width="1792" height="259" key="GridCell.Tab.0.bottom" timestamp="1624906672923">
       <screen x="72" y="34" width="1848" height="1046" />
     </state>
-    <state width="1792" height="259" key="GridCell.Tab.0.bottom/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624856687646" />
-    <state width="1792" height="259" key="GridCell.Tab.0.center" timestamp="1624856687646">
+    <state width="1792" height="259" key="GridCell.Tab.0.bottom/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624906672923" />
+    <state width="1792" height="259" key="GridCell.Tab.0.center" timestamp="1624906672923">
       <screen x="72" y="34" width="1848" height="1046" />
     </state>
-    <state width="1792" height="259" key="GridCell.Tab.0.center/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624856687646" />
-    <state width="1792" height="259" key="GridCell.Tab.0.left" timestamp="1624856687646">
+    <state width="1792" height="259" key="GridCell.Tab.0.center/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624906672923" />
+    <state width="1792" height="259" key="GridCell.Tab.0.left" timestamp="1624906672923">
       <screen x="72" y="34" width="1848" height="1046" />
     </state>
-    <state width="1792" height="259" key="GridCell.Tab.0.left/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624856687646" />
-    <state width="1792" height="259" key="GridCell.Tab.0.right" timestamp="1624856687646">
+    <state width="1792" height="259" key="GridCell.Tab.0.left/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624906672923" />
+    <state width="1792" height="259" key="GridCell.Tab.0.right" timestamp="1624906672923">
       <screen x="72" y="34" width="1848" height="1046" />
     </state>
-    <state width="1792" height="259" key="GridCell.Tab.0.right/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624856687646" />
+    <state width="1792" height="259" key="GridCell.Tab.0.right/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624906672923" />
     <state x="476" y="243" width="1030" height="635" key="IDE.errors.dialog" timestamp="1624852183883">
       <screen x="72" y="34" width="1848" height="1046" />
     </state>
     <state x="476" y="243" width="1030" height="635" key="IDE.errors.dialog/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624852183883" />
-    <state x="351" y="34" width="1280" height="1046" key="SettingsEditor" timestamp="1624852700519">
+    <state x="351" y="34" width="1280" height="1046" key="SettingsEditor" timestamp="1624904791259">
       <screen x="72" y="34" width="1848" height="1046" />
     </state>
-    <state x="351" y="34" width="1280" height="1046" key="SettingsEditor/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624852700519" />
+    <state x="351" y="34" width="1280" height="1046" key="SettingsEditor/72.34.1848.1046/1920.101.1366.768@72.34.1848.1046" timestamp="1624904791259" />
     <state x="491" y="230" width="1000" height="661" key="Vcs.Push.Dialog.v2" timestamp="1624852383479">
       <screen x="72" y="34" width="1848" height="1046" />
     </state>
