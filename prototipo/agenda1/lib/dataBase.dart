@@ -197,7 +197,7 @@ class dbController {
 
     await db.delete(
       'disciplinas',
-      where: 'codDisciplina = ?',
+      where: 'id = ?',
       whereArgs: [id],
     );
   }

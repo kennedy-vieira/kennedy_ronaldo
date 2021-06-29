@@ -66,7 +66,8 @@ class _InterfaceDisciplinaState extends State<InterfaceDisciplina> {
                                             onPressed: () {
                                               dbController().deleteDisciplinas(
                                                   disciplinas[index]
-                                                      .codDisciplina!);
+                                                      .id!);
+                                              Navigator.pop(context);
                                             },
                                             child: Text("Excluir"),
                                           )),

@@ -20,7 +20,7 @@ Widget gaveta(BuildContext context) {
             color: Colors.blue,
           ),
           child: Text(
-            '"Nome do app"',
+            'Menu',
             style: TextStyle(
               color: Colors.white,
               fontSize: 24,

@@ -1,8 +1,9 @@
 import 'package:agenda/atividade.dart';
 import 'package:agenda/dataBase.dart';
+import 'package:agenda/interfaceDisciplina.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'disciplina.dart';
 import 'utilitarios.dart';
 
 class InterfaceAtividade extends StatefulWidget {
@@ -22,15 +23,67 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
   void carregaListas() async {
     var auxDisciplinas = await dbController().getDisciplinas();
     var auxAtividades = await dbController().getAtividades();
+    var auxAtividadesOrdenadas = ordenaAtividades(auxAtividades);
     setState(() {
       disciplinas = auxDisciplinas;
-      atividades = auxAtividades;
+      atividades = auxAtividadesOrdenadas;
     });
+  }
+
+  List<Atividade> ordenaAtividades(List<Atividade> atividades) {
+    List<Atividade> atividadesOrdenadas = [];
+    List<Atividade> atividadesDesordenadas = atividades;
+    var day,month,year;
+    for(var i = 0;i < atividadesDesordenadas.length;i++){
+      if(atividadesDesordenadas[i].prioridade == 'Alta'){
+        atividadesOrdenadas.add(atividadesDesordenadas[i]);
+      }
+    }
+    for(var i = 0;i < atividadesDesordenadas.length;i++){
+      if(atividadesDesordenadas[i].prioridade == 'Media'){
+        atividadesOrdenadas.add(atividadesDesordenadas[i]);
+      }
+    }
+    for(var i = 0;i < atividadesDesordenadas.length;i++){
+      if(atividadesDesordenadas[i].prioridade == 'Baixa'){
+        atividadesOrdenadas.add(atividadesDesordenadas[i]);
+      }
+    }
+    for(var i = 0;i < atividadesDesordenadas.length;i++){
+      if(atividadesDesordenadas[i].prioridade != 'Baixa' &&atividadesDesordenadas[i].prioridade != 'Media' && atividadesDesordenadas[i].prioridade != 'Alta'){
+        atividadesOrdenadas.add(atividadesDesordenadas[i]);
+      }
+    }
+
+
+    return atividadesOrdenadas;
   }
 
   @override
   Widget build(BuildContext context) {
     carregaListas();
+    if(disciplinas.isEmpty){
+      return Scaffold(
+        appBar: AppBar(
+          title: Text("Atividades"),
+        ),
+        endDrawer: gaveta(context),
+        body: Center(
+          child: Text('Nescessário cadastrar ao menos uma disciplina'),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () {
+            Navigator.pop(
+                context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => NovaDisciplina()));
+          },
+        ),
+      );
+    }
     if (atividades.isEmpty) {
       return Scaffold(
         appBar: AppBar(
@@ -56,7 +109,7 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('atividades'),
+        title: Text('Atividades'),
       ),
       endDrawer: gaveta(context),
       body: Center(
@@ -71,14 +124,16 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Column(children: [
+                          Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
                             Text('Titulo : ' + atividades[index].titulo.toString()),
                             Text('Data de entrega : ' +
                                 atividades[index].dataDeEntrega.toString()),
                             Text(
                                 'Prioridade : ' + atividades[index].prioridade.toString()),
                             Text('Status : ' + atividades[index].status.toString()),
-                            Text('id disciplina : ' +
+                            Text('Codigo da Disciplina : ' +
                                 atividades[index].idDisciplina.toString()),
                             Text('Valor da atividade : ' +
                                 atividades[index].notaAtividade.toString()),
@@ -94,6 +149,9 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
                                     PopupMenuItem(
                                         value: 0,
                                         child: TextButton(
+                                          style: TextButton.styleFrom(
+                                            primary: Colors.black,
+                                          ),
                                           child: Text('Menu de opções'),
                                           onPressed: () {},
                                         )),
@@ -104,6 +162,7 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
                                             dbController().deleteAtividades(
                                                 atividades[index]
                                                     .id);
+                                            Navigator.pop(context);
                                           },
                                           child: Text("Excluir"),
                                         )),
@@ -137,18 +196,42 @@ class InterfaceNovaAtividade extends StatefulWidget {
 
 class _InterfaceNovaAtividadeState extends State<InterfaceNovaAtividade> {
   var titulo = TextEditingController();
-  var dataDeEntrega = TextEditingController();
+  var dataDeEntrega;
   var prioridade = TextEditingController();
-  var status = TextEditingController();
+  //var status = TextEditingController();
   var idDisciplina = TextEditingController();
-  var notaAlcancada = TextEditingController();
+  //var notaAlcancada = TextEditingController();
   var notaAtividade = TextEditingController();
+  List<String> disciplinas = [];
+  List<Disciplina> listaDisciplinas = [];
+  var dropdownValue;
+  var prioridadesDropdownValue = "Media";
+  var dateEntrega;
+
+  @override
+  void initState() {
+    super.initState();
+    carregaListas();
+  }
+
+  void carregaListas() async {
+    var auxDisciplinas = await dbController().getDisciplinas();
+    List<String> strDisciplinas = [];
+    for (var i = 0;i<auxDisciplinas.length;i++ ){
+      strDisciplinas.add(auxDisciplinas[i].nome + " - " + auxDisciplinas[i].codDisciplina);
+    }
+    setState(() {
+      disciplinas = strDisciplinas;
+      listaDisciplinas = auxDisciplinas;
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Nova disciplina'),
+        title: Text('Nova Atividade'),
       ),
       endDrawer: gaveta(context),
       body: SingleChildScrollView(
@@ -166,47 +249,16 @@ class _InterfaceNovaAtividadeState extends State<InterfaceNovaAtividade> {
               ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Data de entrega da atividade'),
-                  controller: dataDeEntrega,
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Prioridade da atividade'),
-                  controller: prioridade,
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Status da atividade'),
-                  controller: status,
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Nome da Disciplina'),
-                  controller: idDisciplina,
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Nota alcançada na Atividade'),
-                  controller: notaAlcancada,
+                child: Row(
+                  children: [
+                    Text("Data de entrega da atividade:  "),
+                    ElevatedButton(
+                      child:FittedBox(
+                        child: Text(formatSelectedDate()),
+                      ),
+                      onPressed:() => pickDate(context),
+                    ) ,
+                  ],
                 ),
               ),
               Container(
@@ -218,6 +270,66 @@ class _InterfaceNovaAtividadeState extends State<InterfaceNovaAtividade> {
                   controller: notaAtividade,
                 ),
               ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+                child: Row(
+                  children: [
+                    Text("Selecione a prioridade:  "),
+                    DropdownButton<String>(
+                      value: prioridadesDropdownValue,
+                      icon: const Icon(Icons.arrow_downward),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: const TextStyle(color: Colors.deepPurple),
+                      underline: Container(
+                        height: 2,
+                        color: Colors.deepPurpleAccent,
+                      ),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          prioridadesDropdownValue = newValue!;
+                        });
+                      },
+                      items: <String>['Alta', 'Media', 'Baixa'].map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+                child: Row(
+                  children: [
+                    Text("Selecione a disciplina:  "),
+                    DropdownButton<String>(
+                      value: dropdownValue,
+                      icon: const Icon(Icons.arrow_downward),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: const TextStyle(color: Colors.deepPurple),
+                      underline: Container(
+                        height: 2,
+                        color: Colors.deepPurpleAccent,
+                      ),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          dropdownValue = newValue!;
+                        });
+                      },
+                      items: disciplinas.map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -226,15 +338,54 @@ class _InterfaceNovaAtividadeState extends State<InterfaceNovaAtividade> {
           child: const Icon(Icons.save),
           onPressed: () {
             dbController().insereAtividade(Atividade(
-                dataDeEntrega: dataDeEntrega.text,
+                dataDeEntrega: dataDeEntrega,
                 titulo: titulo.text,
-                prioridade: prioridade.text,
-                idDisciplina: idDisciplina.text,
-                status: status.text,
-                notaAlcancada: notaAlcancada.text,
+                prioridade: prioridadesDropdownValue,
+                idDisciplina: getCodDisciplinas(dropdownValue,listaDisciplinas),
+                status: "A fazer",
+                notaAlcancada: "",
                 notaAtividade: notaAtividade.text));
             Navigator.pop(context);
           }),
     );
   }
+
+  String formatSelectedDate(){
+    if(dateEntrega == null){
+      return 'Selecione a data';
+    }else{
+      var data ='${dateEntrega.day}/${dateEntrega.month}/${dateEntrega.year}';
+      dataDeEntrega = data.toString();
+      return data;
+    }
+  }
+
+
+  Future pickDate(BuildContext context) async{
+    final initialDate = DateTime.now();
+    final newDate = await showDatePicker(
+      context: context,
+      initialDate: initialDate,
+      firstDate: DateTime(DateTime.now().year - 5),
+      lastDate: DateTime(DateTime.now().year + 5),
+    );
+    if(newDate == null)return;
+
+    setState(() {
+      dateEntrega = newDate;
+    });
+  }
+
+
+  String getCodDisciplinas(String str,List<Disciplina> listaDeDisciplinas){
+    String codDisciplina = '';
+    for(var i = 0;i < listaDeDisciplinas.length;i++){
+      if(str.contains(listaDisciplinas[i].codDisciplina)){
+        codDisciplina = listaDisciplinas[i].codDisciplina;
+      }
+    }
+    return codDisciplina;
+  }
+
 }
+
