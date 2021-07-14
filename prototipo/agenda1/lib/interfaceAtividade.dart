@@ -59,7 +59,12 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
 
     return atividadesOrdenadas;
   }
+  String formatSelectedDate(String data) {
+      DateTime data1 = DateTime.parse(data);
+      var dat = '${data1.day}/${data1.month}/${data1.year}';
+      return dat;
 
+  }
   @override
   Widget build(BuildContext context) {
     carregaListas();
@@ -128,8 +133,7 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
                               children: [
                                 Text('Titulo : ' +
                                     atividades[index].titulo.toString()),
-                                Text('Data de entrega : ' +
-                                    atividades[index].dataDeEntrega.toString()),
+                                Text('Data de entrega : ' + formatSelectedDate(atividades[index].dataDeEntrega)),
                                 Text('Prioridade : ' +
                                     atividades[index].prioridade.toString()),
                                 Text('Status : ' +
@@ -405,8 +409,9 @@ class _InterfaceNovaAtividadeState extends State<InterfaceNovaAtividade> {
 }
 
 class InterfaceEditaAtividade extends StatefulWidget {
-  Atividade atividade;
+  final Atividade atividade;
   InterfaceEditaAtividade({required this.atividade}) {}
+
   @override
   _InterfaceEditaAtividadeState createState() =>
       _InterfaceEditaAtividadeState(atividade);
@@ -417,6 +422,7 @@ class _InterfaceEditaAtividadeState extends State<InterfaceEditaAtividade> {
   var dataDeEntrega;
   var prioridade = TextEditingController();
   var notaAtividade = TextEditingController();
+  var notaObtida = TextEditingController();
   List<String> disciplinas = [];
   List<Disciplina> listaDisciplinas = [];
   var dropdownValue;
@@ -456,7 +462,7 @@ class _InterfaceEditaAtividadeState extends State<InterfaceEditaAtividade> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Nova Atividade'),
+        title: Text('Editar atividade'),
       ),
       endDrawer: gaveta(context),
       body: SingleChildScrollView(
@@ -493,6 +499,15 @@ class _InterfaceEditaAtividadeState extends State<InterfaceEditaAtividade> {
                       border: OutlineInputBorder(),
                       labelText: 'Valor da atividade'),
                   controller: notaAtividade,
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Nota Obtida'),
+                  controller: notaObtida,
                 ),
               ),
               Container(
@@ -564,14 +579,15 @@ class _InterfaceEditaAtividadeState extends State<InterfaceEditaAtividade> {
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.save),
           onPressed: () {
-            dbController().insereAtividade(Atividade(
+
+            dbController().updateAtividades(Atividade(
                 dataDeEntrega: dateEntrega.toString(),
                 titulo: titulo.text,
                 prioridade: prioridadesDropdownValue,
                 idDisciplina:
                 getCodDisciplinas(dropdownValue, listaDisciplinas),
                 status: "A fazer",
-                notaAlcancada: "",
+                notaAlcancada: notaObtida.text,
                 notaAtividade: notaAtividade.text));
             Navigator.pop(context);
           }),
