@@ -9,35 +9,65 @@ import 'package:intl/intl.dart' show DateFormat;
 import 'utilitarios.dart';
 import 'dataBase.dart';
 
-class Evento implements EventInterface{
+class Evento implements EventInterface {
   final DateTime date;
   final String? title;
+  final String? disciplina;
+  String status;
+  String prioridade;
   Widget? icon;
   Widget? dot;
   final int? id;
-  Evento({required this.date, this.title,this.icon, this.dot,this.id}){}
+  Evento(
+      {required this.date,
+      required this.title,
+      this.icon,
+      this.dot,
+      this.id,
+      required this.disciplina,
+      required this.prioridade,
+      required this.status}) {}
 
-  DateTime getDate(){
+  DateTime getDate() {
     return date;
   }
-  String? getTitle(){
+
+  String getStatus() {
+    return status;
+  }
+
+  String getPrioridade() {
+    return prioridade;
+  }
+
+  String? getTitle() {
     return title;
   }
-  Widget? getIcon(){
+
+  String? getDisciplina() {
+    return disciplina;
+  }
+
+  Widget? getIcon() {
     return icon;
   }
-  Widget? getDot(){
+
+  Widget? getDot() {
     return dot;
   }
-  int? getId(){
-  return id;}
 
+  int? getId() {
+    return id;
+  }
 }
 
 // classe Calendario e _CalendarioState são para a pagina calendario
 
 class Calendario extends StatefulWidget {
-  Calendario({Key? key, required this.title,}) : super(key: key);
+  Calendario({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
 
   final String title;
 
@@ -45,7 +75,11 @@ class Calendario extends StatefulWidget {
   _CalendarioState createState() => new _CalendarioState();
 }
 
-class _CalendarioState extends State<Calendario>  {
+class _CalendarioState extends State<Calendario> {
+  bool exibir = false; // usar essa variavel para controle se deseja exibir
+  // as atividades na parte inferior da pagina
+  List<Evento> EventosDia = []; // usado para armazenar os eventos de um dia
+  //especifico que sera mostrado na tela
   DateTime _currentDate = DateTime.now();
   DateTime _currentDate2 = DateTime.now();
   String _currentMonth = DateFormat.yMMM().format(DateTime.now());
@@ -62,9 +96,10 @@ class _CalendarioState extends State<Calendario>  {
     ),
   );
 
-
   //lista que contem os eventos a serem marcados no calendario
-  EventList<Evento> _markedDateMap = new EventList<Evento>(events: {}, );
+  EventList<Evento> _markedDateMap = new EventList<Evento>(
+    events: {},
+  );
 
   void _carregaEventos() async {
     EventList<Evento> temp = new EventList<Evento>(events: {});
@@ -88,40 +123,46 @@ class _CalendarioState extends State<Calendario>  {
     );
 
     var listaAtividades = await dbController().getAtividades();
-    List<Evento> aa =[];
-    for(int i =0; i < listaAtividades.length;i++)
-      {
-        aa.add(Evento(title:listaAtividades[i].titulo,date: DateTime.parse(listaAtividades[i].dataDeEntrega)));
-
-      }
-    for(int i =0;i<aa.length; i++){
+    List<Evento> aa = [];
+    for (int i = 0; i < listaAtividades.length; i++) {
+      aa.add(Evento(
+          title: listaAtividades[i].titulo,
+          date: DateTime.parse(listaAtividades[i].dataDeEntrega),
+          disciplina: listaAtividades[i].idDisciplina,
+          status: listaAtividades[i].status,
+          prioridade: listaAtividades[i].prioridade));
+    }
+    for (int i = 0; i < aa.length; i++) {
       aa[i].icon = ico;
       aa[i].dot = dot;
-      temp.add(aa[i].date,aa[i]);
+      temp.add(aa[i].date, aa[i]);
     }
     setState(() {
       _markedDateMap = temp;
     });
-
   }
+
   @override
   void initState() {
     super.initState();
     _carregaEventos();
-
   }
 
   @override
   Widget build(BuildContext context) {
     /// Example with custom icon
 
-
     /// Example Calendar Carousel without header and custom prev & next button
+
     final _calendarCarouselNoHeader = CalendarCarousel<Evento>(
       todayBorderColor: Colors.green,
       onDayPressed: (date, events) {
-        this.setState(() => _currentDate2 = date);
-        events.forEach((event) => print(event.title));
+        events.forEach((event) {});
+        this.setState(() {
+          _currentDate2 = date;
+          exibir = events.length > 0 ? true : false;
+          EventosDia = events;
+        });
       },
       daysHaveCircularBorder: true,
       showOnlyCurrentMonthDate: false,
@@ -137,7 +178,7 @@ class _CalendarioState extends State<Calendario>  {
       targetDateTime: _targetDateTime,
       customGridViewPhysics: NeverScrollableScrollPhysics(),
       markedDateCustomShapeBorder:
-      CircleBorder(side: BorderSide(color: Colors.yellow)),
+          CircleBorder(side: BorderSide(color: Colors.yellow)),
       markedDateCustomTextStyle: TextStyle(
         fontSize: 18,
         color: Colors.blue,
@@ -175,7 +216,6 @@ class _CalendarioState extends State<Calendario>  {
       },
       onDayLongPressed: (DateTime date) {
         print('long pressed date $date');
-
       },
     );
 
@@ -189,7 +229,6 @@ class _CalendarioState extends State<Calendario>  {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-
               //custom icon without header
               Container(
                 margin: EdgeInsets.only(
@@ -202,19 +241,18 @@ class _CalendarioState extends State<Calendario>  {
                   children: <Widget>[
                     Expanded(
                         child: Text(
-                          _currentMonth,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24.0,
-                          ),
-                        )),
+                      _currentMonth,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24.0,
+                      ),
+                    )),
                     TextButton(
                       child: Text('PREV'),
                       onPressed: () {
                         setState(() {
                           _targetDateTime = DateTime(
-                              _targetDateTime.year,
-                              _targetDateTime.month - 1);
+                              _targetDateTime.year, _targetDateTime.month - 1);
                           _currentMonth =
                               DateFormat.yMMM().format(_targetDateTime);
                         });
@@ -225,8 +263,7 @@ class _CalendarioState extends State<Calendario>  {
                       onPressed: () {
                         setState(() {
                           _targetDateTime = DateTime(
-                              _targetDateTime.year,
-                              _targetDateTime.month + 1);
+                              _targetDateTime.year, _targetDateTime.month + 1);
                           _currentMonth =
                               DateFormat.yMMM().format(_targetDateTime);
                         });
@@ -239,13 +276,36 @@ class _CalendarioState extends State<Calendario>  {
                 margin: EdgeInsets.symmetric(horizontal: 16.0),
                 child: _calendarCarouselNoHeader,
               ),
-              //
+              SizedBox(
+                  height: 150.00,
+                  child: ListView.builder(
+                      itemCount: EventosDia.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Container(
+                                child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Titulo : ' +
+                                          EventosDia[index].getTitle()!),
+                                      Text('prioridade :' +
+                                          EventosDia[index].getPrioridade()),
+                                    ],
+                                  )
+                                ])));
+                      }))
             ],
           ),
-        )
-    );
-
-  }//build
-
+        ));
+  } //build
 
 }
