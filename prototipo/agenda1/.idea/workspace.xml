@@ -23,7 +23,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39c84504-3453-45e7-b1a7-a48e57d77c5c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/interfacePerfil.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/91e2af342edbf74e6f615a471b7e396e/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/91e2af342edbf74e6f615a471b7e396e/.filecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/91e2af342edbf74e6f615a471b7e396e/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/91e2af342edbf74e6f615a471b7e396e/app.dill" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/91e2af342edbf74e6f615a471b7e396e/debug_android_application.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/91e2af342edbf74e6f615a471b7e396e/debug_android_application.stamp" afterDir="false" />
@@ -31,7 +30,6 @@
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/91e2af342edbf74e6f615a471b7e396e/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/91e2af342edbf74e6f615a471b7e396e/kernel_snapshot.d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/91e2af342edbf74e6f615a471b7e396e/kernel_snapshot.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/91e2af342edbf74e6f615a471b7e396e/kernel_snapshot.stamp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/NOTICES.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/NOTICES.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" afterDir="false" />
@@ -45,8 +43,6 @@
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/interfaceCalendario.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/interfaceCalendario.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utilitarios.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utilitarios.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626300666111</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Inicio da interfacePerfil">
+      <created>1626385716449</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1626385716449</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -151,7 +154,8 @@
     <MESSAGE value="Adicionado opção de editar atividade" />
     <MESSAGE value="Começo implementação do calendario" />
     <MESSAGE value="implementação da função de clique em um dia do calendario" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementação da função de clique em um dia do calendario" />
+    <MESSAGE value="Inicio da interfacePerfil" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inicio da interfacePerfil" />
   </component>
   <component name="WindowStateProjectService">
     <state x="172" y="134" width="1649" height="847" key="AVDManager" timestamp="1626383579834">
