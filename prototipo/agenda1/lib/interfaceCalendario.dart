@@ -248,7 +248,7 @@ class _CalendarioState extends State<Calendario> {
                       ),
                     )),
                     TextButton(
-                      child: Text('PREV'),
+                      child: Text('Ant.'),
                       onPressed: () {
                         setState(() {
                           _targetDateTime = DateTime(
@@ -259,7 +259,7 @@ class _CalendarioState extends State<Calendario> {
                       },
                     ),
                     TextButton(
-                      child: Text('NEXT'),
+                      child: Text('Prox.'),
                       onPressed: () {
                         setState(() {
                           _targetDateTime = DateTime(
@@ -276,8 +276,16 @@ class _CalendarioState extends State<Calendario> {
                 margin: EdgeInsets.symmetric(horizontal: 16.0),
                 child: _calendarCarouselNoHeader,
               ),
-              SizedBox(
-                  height: 150.00,
+              Container(
+                child: Text('Atividades:'),
+                margin: EdgeInsets.symmetric(horizontal: 12.0,vertical: 8.00),
+              ),
+              Container(
+                  height: 130.00,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black, width: 3),
+                  ),
+                  margin: EdgeInsets.symmetric(horizontal: 12.0),
                   child: ListView.builder(
                       itemCount: EventosDia.length,
                       itemBuilder: (context, index) {
@@ -289,7 +297,7 @@ class _CalendarioState extends State<Calendario> {
                                         CrossAxisAlignment.start,
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
+                                        MainAxisAlignment.start,
                                     children: [
                                   Column(
                                     crossAxisAlignment:

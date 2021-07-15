@@ -4,7 +4,7 @@ import 'interfaceDisciplina.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'interfaceCalendario.dart';
-
+import 'interfacePerfil.dart';
 
 //Esse aquivo contem metodos com funções que retornam metodos de UI
 //que serão utilizados em toda a aplicação
@@ -65,13 +65,13 @@ Widget gaveta(BuildContext context) {
         ListTile(
           leading: Icon(Icons.person),
           title: Text('Perfil'),
-          // onTap: () {
-          //   Navigator.pop(context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
-          //   Navigator.push(
-          //       context,
-          //       MaterialPageRoute(
-          //           builder: (context) =>  Disciplinas()));
-          // },
+           onTap: () {
+             Navigator.pop(context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
+             Navigator.push(
+                 context,
+                 MaterialPageRoute(
+                     builder: (context) =>  InterfacePerfil()));
+           },
         ),
       ],
     ),
