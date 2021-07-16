@@ -13,12 +13,13 @@ import 'interfacePerfil.dart';
 
 Widget gaveta(BuildContext context,int idUsuario) {
   return Drawer(
+
     child: ListView(
       padding: EdgeInsets.zero,
       children: <Widget>[
         DrawerHeader(
           decoration: BoxDecoration(
-            color: Colors.blue,
+            color: Colors.blueGrey,
           ),
           child: Text(
             'Menu',

@@ -220,7 +220,6 @@ class dbController {
       },
       version: 1,
     );
-    print('user id  ='+ atividade.idUsuario.toString());
     final db = await database;
 
     await db.insert(
@@ -245,7 +244,6 @@ class dbController {
 
     final List<Map<String, dynamic>> maps =
         await db.query('atividades', where: 'status = ? AND idUsuario = ?', whereArgs: [arg, userId]);
-    print('tamanho da lista ' + maps.length.toString());
     return List.generate(maps.length, (i) {
       return Atividade(
         dataDeEntrega: maps[i]['dataDeEntrega'],

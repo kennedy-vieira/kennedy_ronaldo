@@ -1,3 +1,4 @@
+import 'package:agenda/interfaceLogin.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
@@ -20,35 +21,33 @@ class MyApp extends StatelessWidget {
      idUsuario = -1;
    else idUsuario = r;
   }
-  int idUsuario =0;
+  int idUsuario =0 ;
 
-  MyApp() {
-    //_carregaUsuario();
-    print('idusuario ='+ idUsuario.toString());
-  }
   //se id usuario for -1 isso indica que é necessario pedir para o usuario criar uma conta
   //ou escolher um perfil existente
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    _carregaUsuario();
+    if(idUsuario == -1)
+      return MaterialApp(
+        title: 'Agenda',
+        theme: ThemeData(
+          primarySwatch: Colors.blueGrey,
+        ),
+        home : InterfaceBemVindo()
+      );
+    else{
     return MaterialApp(
       title: 'Agenda',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blueGrey,
       ),
       home: MyHomePage(title: 'Página Inicial',idUsuario: idUsuario,),
     );
   }
+}
 }
 
 class MyHomePage extends StatefulWidget {
