@@ -15,7 +15,9 @@ class dbController {
       'CREATE TABLE usuarios (nome TEXT,expericencia INTEGER,id INTEGER PRIMARY KEY AUTOINCREMENT)';
 
   String createTableDisciplina =
-      'CREATE TABLE disciplinas (nome TEXT,codDisciplina TEXT UNIQUE,id INTEGER PRIMARY KEY AUTOINCREMENT)';
+      'CREATE TABLE disciplinas (nome TEXT,codDisciplina TEXT UNIQUE,'
+      'idUsuario INTEGER UNIQUE,'
+      'id INTEGER PRIMARY KEY AUTOINCREMENT)';
 
   String createTableAtividade =
       'CREATE TABLE atividades (dataDeEntrega INTEGER,'
@@ -23,7 +25,8 @@ class dbController {
       'INTEGER PRIMARY KEY AUTOINCREMENT,notaAtividade REAL,notaAlcancada REAL)';
 
   /*=========================TABELAS USUARIOS==============================*/
-  Future<void> insereUsuario(Usuario usuario) async {
+  Future<void> criaUsuario(String nome) async {
+    Usuario user = Usuario(nome: nome,experiencia: 0);
     WidgetsFlutterBinding.ensureInitialized();
     final database = openDatabase(
       join(await getDatabasesPath(), 'usuarios.db'),
@@ -39,7 +42,7 @@ class dbController {
 
     await db.insert(
       'usuarios',
-      usuario.toMap(),
+      user.toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
@@ -135,7 +138,7 @@ class dbController {
     );
   }
 
-  Future<List<Disciplina>> getDisciplinas() async {
+  Future<List<Disciplina>> getDisciplinas(int userId) async {
     WidgetsFlutterBinding.ensureInitialized();
     final database = openDatabase(
       join(await getDatabasesPath(), 'disciplinas.db'),
@@ -146,15 +149,16 @@ class dbController {
       },
       version: 1,
     );
-    final db = await database;
+      final db = await database;
 
-    final List<Map<String, dynamic>> maps = await db.query('disciplinas');
+    final List<Map<String, dynamic>> maps = await db.query('disciplinas', where: 'idUsuario = ?', whereArgs: [userId]);
 
     return List.generate(maps.length, (i) {
       return Disciplina(
         nome: maps[i]['nome'],
         codDisciplina: maps[i]['codDisciplina'],
         id: maps[i]['id'],
+        idUsuario:  maps[i]['idUsuario'],
       );
     });
   }
@@ -216,7 +220,7 @@ class dbController {
       },
       version: 1,
     );
-
+    print('user id  ='+ atividade.idUsuario.toString());
     final db = await database;
 
     await db.insert(
@@ -226,7 +230,7 @@ class dbController {
     );
   }
 
-  Future<List<Atividade>> getAtividades() async {
+  Future<List<Atividade>> getAtividadesStatus(String arg,int userId) async {
     WidgetsFlutterBinding.ensureInitialized();
     final database = openDatabase(
       join(await getDatabasesPath(), 'atividades.db'),
@@ -239,7 +243,38 @@ class dbController {
     );
     final db = await database;
 
-    final List<Map<String, dynamic>> maps = await db.query('atividades');
+    final List<Map<String, dynamic>> maps =
+        await db.query('atividades', where: 'status = ? AND idUsuario = ?', whereArgs: [arg, userId]);
+    print('tamanho da lista ' + maps.length.toString());
+    return List.generate(maps.length, (i) {
+      return Atividade(
+        dataDeEntrega: maps[i]['dataDeEntrega'],
+        titulo: maps[i]['titulo'],
+        idUsuario: maps[i]['idUsuario'],
+        prioridade: maps[i]['prioridade'],
+        idDisciplina: maps[i]['idDisciplina'],
+        id: maps[i]['id'],
+        status: maps[i]['status'],
+        notaAlcancada: maps[i]['notaAlcancada'],
+        notaAtividade: maps[i]['notaAtividade'],
+      );
+    });
+  }
+
+  Future<List<Atividade>> getAtividades(int userId) async {
+    WidgetsFlutterBinding.ensureInitialized();
+    final database = openDatabase(
+      join(await getDatabasesPath(), 'atividades.db'),
+      onCreate: (db, version) {
+        return db.execute(
+          createTableAtividade,
+        );
+      },
+      version: 1,
+    );
+    final db = await database;
+
+    final List<Map<String, dynamic>> maps = await db.query('atividades', where: 'idUsuario = ?', whereArgs: [userId]);
 
     return List.generate(maps.length, (i) {
       return Atividade(
@@ -254,6 +289,29 @@ class dbController {
         notaAtividade: maps[i]['notaAtividade'],
       );
     });
+  }
+
+  Future<void> alteraStatus(Atividade atividade) async {
+    WidgetsFlutterBinding.ensureInitialized();
+    final database = openDatabase(
+      join(await getDatabasesPath(), 'atividades.db'),
+      onCreate: (db, version) {
+        return db.execute(
+          createTableAtividade,
+        );
+      },
+      version: 1,
+    );
+    atividade.status ==  'Concluido' ? atividade.status = 'A fazer' : atividade.status = 'Concluido';
+
+    final db = await database;
+
+    await db.update(
+      'atividades',
+      atividade.toMap(),
+      where: 'id = ?',
+      whereArgs: [atividade.id],
+    );
   }
 
   Future<void> updateAtividades(Atividade atividade) async {

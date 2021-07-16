@@ -7,13 +7,17 @@ import 'disciplina.dart';
 import 'utilitarios.dart';
 
 class InterfaceAtividade extends StatefulWidget {
+  final int idUsuario;
+  InterfaceAtividade(this.idUsuario);
   @override
-  _InterfaceAtividadeState createState() => _InterfaceAtividadeState();
+  _InterfaceAtividadeState createState() => _InterfaceAtividadeState(idUsuario);
 }
 
 class _InterfaceAtividadeState extends State<InterfaceAtividade> {
+  final int idUsuario;
   var disciplinas = [];
   var atividades = [];
+  _InterfaceAtividadeState(this.idUsuario);
   @override
   void initState() {
     super.initState();
@@ -21,8 +25,8 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
   }
 
   void carregaListas() async {
-    var auxDisciplinas = await dbController().getDisciplinas();
-    var auxAtividades = await dbController().getAtividades();
+    var auxDisciplinas = await dbController().getDisciplinas(idUsuario);
+    var auxAtividades = await dbController().getAtividades(idUsuario);
     var auxAtividadesOrdenadas = ordenaAtividades(auxAtividades);
     setState(() {
       disciplinas = auxDisciplinas;
@@ -73,7 +77,7 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
         appBar: AppBar(
           title: Text("Atividades"),
         ),
-        endDrawer: gaveta(context),
+        endDrawer: gaveta(context,idUsuario),
         body: Center(
           child: Text('Nescessário cadastrar ao menos uma disciplina'),
         ),
@@ -83,7 +87,7 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
             Navigator.pop(
                 context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => NovaDisciplina()));
+                MaterialPageRoute(builder: (context) => NovaDisciplina(idUsuario)));
           },
         ),
       );
@@ -93,7 +97,7 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
         appBar: AppBar(
           title: Text("Atividades"),
         ),
-        endDrawer: gaveta(context),
+        endDrawer: gaveta(context,idUsuario),
         body: Center(
           child: Text('Não existem atividades cadastradadas ainda'),
         ),
@@ -105,7 +109,7 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => InterfaceNovaAtividade()));
+                    builder: (context) => InterfaceNovaAtividade(idUsuario)));
           },
         ),
       );
@@ -115,7 +119,7 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
       appBar: AppBar(
         title: Text('Atividades'),
       ),
-      endDrawer: gaveta(context),
+      endDrawer: gaveta(context,idUsuario),
       body: Center(
         child: ListView.builder(
             itemCount: atividades.length,
@@ -181,7 +185,7 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
                                                         InterfaceEditaAtividade(
                                                             atividade:
                                                             atividades[
-                                                            index])));
+                                                            index],idUsuario: idUsuario,)));
                                           },
                                           child: Text("Editar"),
                                         )),
@@ -201,7 +205,7 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => InterfaceNovaAtividade()));
+                  builder: (context) => InterfaceNovaAtividade(idUsuario)));
         },
       ),
     );
@@ -209,8 +213,10 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
 }
 
 class InterfaceNovaAtividade extends StatefulWidget {
+  final int idUsuario;
+  InterfaceNovaAtividade(this.idUsuario);
   @override
-  _InterfaceNovaAtividadeState createState() => _InterfaceNovaAtividadeState();
+  _InterfaceNovaAtividadeState createState() => _InterfaceNovaAtividadeState(idUsuario);
 }
 
 class _InterfaceNovaAtividadeState extends State<InterfaceNovaAtividade> {
@@ -226,6 +232,8 @@ class _InterfaceNovaAtividadeState extends State<InterfaceNovaAtividade> {
   var dropdownValue;
   var prioridadesDropdownValue = "Media";
   var dateEntrega;
+  final int idUsuario;
+  _InterfaceNovaAtividadeState(this.idUsuario);
 
   @override
   void initState() {
@@ -234,7 +242,7 @@ class _InterfaceNovaAtividadeState extends State<InterfaceNovaAtividade> {
   }
 
   void carregaListas() async {
-    var auxDisciplinas = await dbController().getDisciplinas();
+    var auxDisciplinas = await dbController().getDisciplinas(idUsuario);
     List<String> strDisciplinas = [];
     for (var i = 0; i < auxDisciplinas.length; i++) {
       strDisciplinas.add(
@@ -252,7 +260,7 @@ class _InterfaceNovaAtividadeState extends State<InterfaceNovaAtividade> {
       appBar: AppBar(
         title: Text('Nova Atividade'),
       ),
-      endDrawer: gaveta(context),
+      endDrawer: gaveta(context,idUsuario),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -360,6 +368,7 @@ class _InterfaceNovaAtividadeState extends State<InterfaceNovaAtividade> {
           onPressed: () {
             dbController().insereAtividade(Atividade(
                 dataDeEntrega: dateEntrega.toString(),
+                idUsuario: idUsuario,
                 titulo: titulo.text,
                 prioridade: prioridadesDropdownValue,
                 idDisciplina:
@@ -410,11 +419,12 @@ class _InterfaceNovaAtividadeState extends State<InterfaceNovaAtividade> {
 
 class InterfaceEditaAtividade extends StatefulWidget {
   final Atividade atividade;
-  InterfaceEditaAtividade({required this.atividade}) {}
+  final int idUsuario;
+  InterfaceEditaAtividade({required this.atividade,required this.idUsuario}) ;
 
   @override
   _InterfaceEditaAtividadeState createState() =>
-      _InterfaceEditaAtividadeState(atividade);
+      _InterfaceEditaAtividadeState(atividade,idUsuario);
 }
 
 class _InterfaceEditaAtividadeState extends State<InterfaceEditaAtividade> {
@@ -428,14 +438,16 @@ class _InterfaceEditaAtividadeState extends State<InterfaceEditaAtividade> {
   var dropdownValue;
   var prioridadesDropdownValue = "Media";
   var dateEntrega;
+  final int idUsuario;
 
-  _InterfaceEditaAtividadeState(Atividade atividade) {
+  _InterfaceEditaAtividadeState(Atividade atividade,this.idUsuario) {
 
     titulo.text = atividade.titulo;
     prioridade.text = atividade.prioridade;
     prioridadesDropdownValue = atividade.prioridade;
     notaAtividade.text = atividade.notaAtividade.toString();
     dateEntrega = DateTime.parse(atividade.dataDeEntrega);
+
 
   }
 
@@ -446,7 +458,7 @@ class _InterfaceEditaAtividadeState extends State<InterfaceEditaAtividade> {
   }
 
   void carregaListas() async {
-    var auxDisciplinas = await dbController().getDisciplinas();
+    var auxDisciplinas = await dbController().getDisciplinas(idUsuario);
     List<String> strDisciplinas = [];
     for (var i = 0; i < auxDisciplinas.length; i++) {
       strDisciplinas.add(
@@ -464,7 +476,7 @@ class _InterfaceEditaAtividadeState extends State<InterfaceEditaAtividade> {
       appBar: AppBar(
         title: Text('Editar atividade'),
       ),
-      endDrawer: gaveta(context),
+      endDrawer: gaveta(context,idUsuario),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -626,5 +638,229 @@ class _InterfaceEditaAtividadeState extends State<InterfaceEditaAtividade> {
       }
     }
     return codDisciplina;
+  }
+}
+
+
+// As proximas duas classes são para exibir as atividades filtradas por status
+
+class InterfaceAtividadeStatus extends StatefulWidget {
+  final String arg;
+  final int idUsuario;
+  InterfaceAtividadeStatus(this.arg,this.idUsuario);
+  @override
+  _InterfaceAtividadeStatusState createState() => _InterfaceAtividadeStatusState(arg,idUsuario);
+}
+
+class _InterfaceAtividadeStatusState extends State<InterfaceAtividadeStatus>
+{
+  var disciplinas = [];
+  var atividades = [];
+  final String arg;
+  final int idUsuario;
+  _InterfaceAtividadeStatusState(this.arg,this.idUsuario);
+  @override
+  void initState() {
+    super.initState();
+    carregaListas();
+  }
+
+  void carregaListas() async {
+    var auxDisciplinas = await dbController().getDisciplinas(idUsuario);
+    var auxAtividades = await dbController().getAtividadesStatus(arg,idUsuario);
+    var auxAtividadesOrdenadas = ordenaAtividades(auxAtividades);
+    setState(() {
+      disciplinas = auxDisciplinas;
+      atividades = auxAtividadesOrdenadas;
+    });
+  }
+
+  List<Atividade> ordenaAtividades(List<Atividade> atividades) {
+    List<Atividade> atividadesOrdenadas = [];
+    List<Atividade> atividadesDesordenadas = atividades;
+    var day, month, year;
+    for (var i = 0; i < atividadesDesordenadas.length; i++) {
+      if (atividadesDesordenadas[i].prioridade == 'Alta') {
+        atividadesOrdenadas.add(atividadesDesordenadas[i]);
+      }
+    }
+    for (var i = 0; i < atividadesDesordenadas.length; i++) {
+      if (atividadesDesordenadas[i].prioridade == 'Media') {
+        atividadesOrdenadas.add(atividadesDesordenadas[i]);
+      }
+    }
+    for (var i = 0; i < atividadesDesordenadas.length; i++) {
+      if (atividadesDesordenadas[i].prioridade == 'Baixa') {
+        atividadesOrdenadas.add(atividadesDesordenadas[i]);
+      }
+    }
+    for (var i = 0; i < atividadesDesordenadas.length; i++) {
+      if (atividadesDesordenadas[i].prioridade != 'Baixa' &&
+          atividadesDesordenadas[i].prioridade != 'Media' &&
+          atividadesDesordenadas[i].prioridade != 'Alta') {
+        atividadesOrdenadas.add(atividadesDesordenadas[i]);
+      }
+    }
+
+    return atividadesOrdenadas;
+  }
+  String formatSelectedDate(String data) {
+    DateTime data1 = DateTime.parse(data);
+    var dat = '${data1.day}/${data1.month}/${data1.year}';
+    return dat;
+
+  }
+  @override
+  Widget build(BuildContext context) {
+    carregaListas();
+    if (disciplinas.isEmpty) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text("Atividades " + arg),
+        ),
+        endDrawer: gaveta(context,idUsuario),
+        body: Center(
+          child: Text('Nescessário cadastrar ao menos uma disciplina'),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () {
+            Navigator.pop(
+                context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => NovaDisciplina(idUsuario)));
+          },
+        ),
+      );
+    }
+    if (atividades.isEmpty) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text("Atividades "+ arg),
+        ),
+        endDrawer: gaveta(context,idUsuario),
+        body: Center(
+          child: Text('Não existem atividades cadastradadas ainda'),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () {
+            Navigator.pop(
+                context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => InterfaceNovaAtividade(idUsuario)));
+          },
+        ),
+      );
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Atividades ' + arg),
+      ),
+      endDrawer: gaveta(context,idUsuario),
+      body: Center(
+        child: ListView.builder(
+            itemCount: atividades.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Container(
+                    child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Titulo : ' +
+                                    atividades[index].titulo.toString()),
+                                Text('Data de entrega : ' + formatSelectedDate(atividades[index].dataDeEntrega)),
+                                Text('Prioridade : ' +
+                                    atividades[index].prioridade.toString()),
+                                Text('Status : ' +
+                                    atividades[index].status.toString()),
+                                Text('Codigo da Disciplina : ' +
+                                    atividades[index].idDisciplina.toString()),
+                                Text('Valor da atividade : ' +
+                                    atividades[index].notaAtividade.toString()),
+                                Text('Nota obtida : ' +
+                                    atividades[index].notaAlcancada.toString()),
+                              ]),
+                          Column(
+                            children: [
+                              TextButton(
+                                onPressed: () {},
+                                child: PopupMenuButton<int>(
+                                  itemBuilder: (context) => [
+                                    PopupMenuItem(
+                                        value: 0,
+                                        child: TextButton(
+                                          style: TextButton.styleFrom(
+                                            primary: Colors.black,
+                                          ),
+                                          child: Text('Menu de opções'),
+                                          onPressed: () {},
+                                        )),
+                                    PopupMenuItem(
+                                        value: 1,
+                                        child: TextButton(
+                                          onPressed: () {
+                                            dbController().deleteAtividades(
+                                                atividades[index].id);
+                                            Navigator.pop(context);
+                                          },
+                                          child: Text("Excluir"),
+                                        )),
+                                    PopupMenuItem(
+                                        value: 2,
+                                        child: TextButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        InterfaceEditaAtividade(
+                                                            atividade:
+                                                            atividades[
+                                                            index],idUsuario: idUsuario,)));
+                                          },
+                                          child: Text("Editar"),
+                                        )),
+                                    PopupMenuItem(
+                                        value: 3,
+                                        child: TextButton(
+                                          onPressed: () {
+                                            setState(() {
+                                              atividades.removeAt(index);
+                                            });
+                                            dbController().alteraStatus(atividades[index]);
+
+                                          },
+                                          child: Text("Alterar Status"),
+                                        )),
+                                  ],
+                                  icon: Icon(Icons.settings),
+                                ),
+                              )
+                            ],
+                          ),
+                        ]),
+                  ));
+            }),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => InterfaceNovaAtividade(idUsuario)));
+        },
+      ),
+    );
   }
 }

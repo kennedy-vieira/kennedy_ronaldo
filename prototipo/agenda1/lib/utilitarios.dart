@@ -11,7 +11,7 @@ import 'interfacePerfil.dart';
 
 // drawer que contem as opções do aplicativo
 
-Widget gaveta(BuildContext context) {
+Widget gaveta(BuildContext context,int idUsuario) {
   return Drawer(
     child: ListView(
       padding: EdgeInsets.zero,
@@ -37,20 +37,36 @@ Widget gaveta(BuildContext context) {
              Navigator.push(
                  context,
                  MaterialPageRoute(
-                     builder: (context) =>  Calendario(title: "Calendario")));
+                     builder: (context) =>  Calendario(title: "Calendario",idUsuario: idUsuario,)));
            },
         ),
-        ListTile(
+        ExpansionTile(title: Text('Atividades'),
           leading: Icon(Icons.account_balance_wallet_sharp),
-          title: Text('Atividades'),
-          onTap: () {
+          children: [
+          TextButton(onPressed: (){
             Navigator.pop(context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) =>  InterfaceAtividade()));
-          },
-        ),
+                    builder: (context) =>  InterfaceAtividade(idUsuario)));
+          }, child: Text('Todas')),
+
+          TextButton(onPressed: (){
+            Navigator.pop(context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>  InterfaceAtividadeStatus('Concluido',idUsuario)));
+          }, child: Text('Concluidas')),
+
+          TextButton(onPressed: (){
+            Navigator.pop(context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>  InterfaceAtividadeStatus('A fazer',idUsuario)));
+          }, child: Text('A fazer')),
+        ],),
         ListTile(
           leading: Icon(Icons.apartment_sharp),
           title: Text('Disciplinas'),
@@ -59,7 +75,7 @@ Widget gaveta(BuildContext context) {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) =>  InterfaceDisciplina()));
+                    builder: (context) =>  InterfaceDisciplina(idUsuario)));
           },
         ),
         ListTile(
@@ -70,7 +86,7 @@ Widget gaveta(BuildContext context) {
              Navigator.push(
                  context,
                  MaterialPageRoute(
-                     builder: (context) =>  InterfacePerfil()));
+                     builder: (context) =>  InterfacePerfil(idUsuario)));
            },
         ),
       ],

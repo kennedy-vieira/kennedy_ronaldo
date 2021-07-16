@@ -5,11 +5,15 @@ import 'dataBase.dart';
 import 'utilitarios.dart';
 
 class InterfaceDisciplina extends StatefulWidget {
+  final int idUsuario;
+  InterfaceDisciplina(this.idUsuario);
   @override
-  _InterfaceDisciplinaState createState() => _InterfaceDisciplinaState();
+  _InterfaceDisciplinaState createState() => _InterfaceDisciplinaState(idUsuario);
 }
 
 class _InterfaceDisciplinaState extends State<InterfaceDisciplina> {
+  final int idUsuario;
+  _InterfaceDisciplinaState(this.idUsuario);
   List<Disciplina> disciplinas = [];
   @override
   void initState() {
@@ -18,7 +22,7 @@ class _InterfaceDisciplinaState extends State<InterfaceDisciplina> {
   }
 
   void carregaLista() async {
-    List<Disciplina> auxDisciplinas = await dbController().getDisciplinas();
+    List<Disciplina> auxDisciplinas = await dbController().getDisciplinas(idUsuario);
     setState(() {
       disciplinas = auxDisciplinas;
     });
@@ -32,7 +36,7 @@ class _InterfaceDisciplinaState extends State<InterfaceDisciplina> {
         appBar: AppBar(
           title: Text('Disciplinas'),
         ),
-        endDrawer: gaveta(context),
+        endDrawer: gaveta(context,idUsuario),
         body: Center(
           child: ListView.builder(
               itemCount: disciplinas.length,
@@ -84,7 +88,7 @@ class _InterfaceDisciplinaState extends State<InterfaceDisciplina> {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => NovaDisciplina()));
+                MaterialPageRoute(builder: (context) => NovaDisciplina(idUsuario)));
           },
           tooltip: 'Increment',
           child: Icon(Icons.add),
@@ -95,14 +99,14 @@ class _InterfaceDisciplinaState extends State<InterfaceDisciplina> {
         appBar: AppBar(
           title: Text('Disciplinas'),
         ),
-        endDrawer: gaveta(context),
+        endDrawer: gaveta(context,idUsuario),
         body: Center(
           child: Text('Não há disciplinas cadastradas!'),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => NovaDisciplina()));
+                MaterialPageRoute(builder: (context) => NovaDisciplina(idUsuario)));
           },
           tooltip: 'Increment',
           child: Icon(Icons.add),
@@ -113,11 +117,15 @@ class _InterfaceDisciplinaState extends State<InterfaceDisciplina> {
 }
 
 class NovaDisciplina extends StatefulWidget {
+  final int idUsuario;
+  NovaDisciplina(this.idUsuario);
   @override
-  _NovaDisciplinaState createState() => _NovaDisciplinaState();
+  _NovaDisciplinaState createState() => _NovaDisciplinaState(idUsuario);
 }
 
 class _NovaDisciplinaState extends State<NovaDisciplina> {
+  final int idUsuario;
+  _NovaDisciplinaState(this.idUsuario);
   var nomeDisciplina = TextEditingController();
   var codigoDisciplina = TextEditingController();
   @override
@@ -126,7 +134,7 @@ class _NovaDisciplinaState extends State<NovaDisciplina> {
       appBar: AppBar(
         title: Text('Nova Disciplina'),
       ),
-      endDrawer: gaveta(context),
+      endDrawer: gaveta(context,idUsuario),
       body: Column(children: <Widget>[
         Container(
           margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
@@ -151,7 +159,8 @@ class _NovaDisciplinaState extends State<NovaDisciplina> {
           onPressed: () {
             dbController().insereDisciplina(Disciplina(
                 nome: nomeDisciplina.text,
-                codDisciplina: codigoDisciplina.text));
+                codDisciplina: codigoDisciplina.text,
+                idUsuario: idUsuario));
             Navigator.pop(context);
           }),
     );

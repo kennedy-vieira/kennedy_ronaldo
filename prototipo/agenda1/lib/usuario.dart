@@ -4,14 +4,18 @@ import 'conquista.dart';
 import 'buffDebuff.dart';
 class Usuario{
   var nome;
+  var experiencia;
+  var id;
+
+  // eu acho que essas listas são desnecessarias, já que temos que ler do db sempre
+  // 16\7\21
+  /*
   List<Atividade> atividades = [];
   List<Disciplina> disciplinas = [];
   List<Conquista> conquistas = [];
   List<BuffDebuff> buffDebuff = [];
-  var experiencia;
   var highscore;
-  var id;
-
+  */
   Usuario({this.nome, this.experiencia,this.id});
 
   Map<String, dynamic> toMap() {

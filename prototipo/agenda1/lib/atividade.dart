@@ -1,5 +1,4 @@
-
-class Atividade{
+class Atividade {
   var id;
   var titulo;
   var dataDeEntrega;
@@ -10,7 +9,17 @@ class Atividade{
   var notaAtividade;
   var idUsuario;
 
-  Atividade({this.dataDeEntrega, this.titulo,this.idUsuario,this.prioridade,this.idDisciplina,this.id,this.status,this.notaAtividade,this.notaAlcancada});
+  Atividade(
+      {this.dataDeEntrega,
+      this.titulo,
+      this.idUsuario,
+      this.prioridade,
+      this.idDisciplina,
+      this.id,
+      this.status,
+      this.notaAtividade,
+      this.notaAlcancada,
+      });
 
   Map<String, dynamic> toMap() {
     return {
@@ -25,5 +34,4 @@ class Atividade{
       'notaAtividade': notaAtividade,
     };
   }
-
 }

@@ -5,11 +5,30 @@ import 'interfaceDisciplina.dart';
 import 'utilitarios.dart';
 import 'atividade.dart';
 import 'dataBase.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+
+
+  _carregaUsuario()async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+   var r = await prefs.getInt('idUser');
+   if(r == null)
+     idUsuario = -1;
+   else idUsuario = r;
+  }
+  int idUsuario =0;
+
+  MyApp() {
+    //_carregaUsuario();
+    print('idusuario ='+ idUsuario.toString());
+  }
+  //se id usuario for -1 isso indica que é necessario pedir para o usuario criar uma conta
+  //ou escolher um perfil existente
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -27,13 +46,13 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Página Inicial'),
+      home: MyHomePage(title: 'Página Inicial',idUsuario: idUsuario,),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-   MyHomePage({Key? key, required this.title}) : super(key: key);
+   MyHomePage({Key? key, required this.title, required this.idUsuario}) : super(key: key);
 
 
   // This widget is the home page of your application. It is stateful, meaning
@@ -46,13 +65,15 @@ class MyHomePage extends StatefulWidget {
   // always marked "final".
 
   final String title;
+  final int idUsuario;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MyHomePageState createState() => _MyHomePageState(idUsuario);
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
+  final int idUsuario;
+  _MyHomePageState(this.idUsuario);
 
   var atividades = [];
   var atividadePrincipal;
@@ -64,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void carregaListas() async {
 
-    var auxAtividades = await dbController().getAtividades();
+    var auxAtividades = await dbController().getAtividades(idUsuario);
     var auxAtividadesOrdenadas = await ordenaAtividades(auxAtividades);
     setState(() {
       atividades = auxAtividadesOrdenadas;
@@ -76,7 +97,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
     List<Atividade> atividadesOrdenadas = [];
     List<Atividade> atividadesDesordenadas = atividades;
-    var day,month,year;
     for(var i = 0;i < atividadesDesordenadas.length;i++){
       if(atividadesDesordenadas[i].prioridade == 'Alta'){
         atividadesOrdenadas.add(atividadesDesordenadas[i]);
@@ -95,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
         title: Text(widget.title),
       ),
-      endDrawer: gaveta(context),
+      endDrawer: gaveta(context,idUsuario),
       body: Center(
 
         child: Column(

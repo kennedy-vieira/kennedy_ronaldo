@@ -64,20 +64,20 @@ class Evento implements EventInterface {
 // classe Calendario e _CalendarioState são para a pagina calendario
 
 class Calendario extends StatefulWidget {
+
   Calendario({
     Key? key,
-    required this.title,
+    required this.title,required this.idUsuario
   }) : super(key: key);
 
   final String title;
-
+  final int idUsuario;
   @override
-  _CalendarioState createState() => new _CalendarioState();
+  _CalendarioState createState() => new _CalendarioState(idUsuario);
 }
 
 class _CalendarioState extends State<Calendario> {
-  bool exibir = false; // usar essa variavel para controle se deseja exibir
-  // as atividades na parte inferior da pagina
+  final int idUsuario;
   List<Evento> EventosDia = []; // usado para armazenar os eventos de um dia
   //especifico que sera mostrado na tela
   DateTime _currentDate = DateTime.now();
@@ -101,6 +101,7 @@ class _CalendarioState extends State<Calendario> {
     events: {},
   );
 
+  _CalendarioState(this.idUsuario);
   void _carregaEventos() async {
     EventList<Evento> temp = new EventList<Evento>(events: {});
 
@@ -122,7 +123,7 @@ class _CalendarioState extends State<Calendario> {
       ),
     );
 
-    var listaAtividades = await dbController().getAtividades();
+    var listaAtividades = await dbController().getAtividades(idUsuario);
     List<Evento> aa = [];
     for (int i = 0; i < listaAtividades.length; i++) {
       aa.add(Evento(
@@ -160,7 +161,6 @@ class _CalendarioState extends State<Calendario> {
         events.forEach((event) {});
         this.setState(() {
           _currentDate2 = date;
-          exibir = events.length > 0 ? true : false;
           EventosDia = events;
         });
       },
@@ -223,7 +223,7 @@ class _CalendarioState extends State<Calendario> {
         appBar: new AppBar(
           title: new Text(widget.title),
         ),
-        endDrawer: gaveta(context),
+        endDrawer: gaveta(context,idUsuario),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
