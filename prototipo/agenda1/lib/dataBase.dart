@@ -16,7 +16,7 @@ class dbController {
 
   String createTableDisciplina =
       'CREATE TABLE disciplinas (nome TEXT,codDisciplina TEXT UNIQUE,'
-      'idUsuario INTEGER UNIQUE,'
+      'idUsuario INTEGER,'
       'id INTEGER PRIMARY KEY AUTOINCREMENT)';
 
   String createTableAtividade =
@@ -60,7 +60,7 @@ class dbController {
     );
     final db = await database;
 
-    final List<Map<String, dynamic>> maps = await db.query('usarios');
+    final List<Map<String, dynamic>> maps = await db.query('usuarios');
 
     return List.generate(maps.length, (i) {
       return Usuario(

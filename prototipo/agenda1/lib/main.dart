@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
      idUsuario = -1;
    else idUsuario = r;
   }
-  int idUsuario =0 ;
+  int idUsuario = 0 ;
 
   //se id usuario for -1 isso indica que é necessario pedir para o usuario criar uma conta
   //ou escolher um perfil existente
@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    _carregaUsuario();
-    if(idUsuario == -1)
+    //_carregaUsuario();
+    if(idUsuario == -1)//idUsuario == -1
       return MaterialApp(
         title: 'Agenda',
         theme: ThemeData(

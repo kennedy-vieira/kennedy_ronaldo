@@ -427,6 +427,43 @@ class InterfaceEditaAtividade extends StatefulWidget {
       _InterfaceEditaAtividadeState(atividade,idUsuario);
 }
 
+class InterfaceLancarNota extends StatefulWidget {
+  final Atividade atividade;
+  final int idUsuario;
+  InterfaceLancarNota({required this.atividade,required this.idUsuario}) ;
+
+  @override
+  _InterfaceLancarNotaState createState() =>
+      _InterfaceLancarNotaState(atividade,idUsuario);
+}
+
+class _InterfaceLancarNotaState extends State<InterfaceLancarNota> {
+
+  var notaAtividade = TextEditingController();
+  var notaAlcancada;
+  final int idUsuario;
+
+  _InterfaceLancarNotaState(Atividade atividade,this.idUsuario){
+    notaAtividade.text = atividade.notaAtividade.toString();
+  }
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.save),
+          onPressed: () {
+            Navigator.pop(context);
+          }),
+    );
+  }
+
+}
+
 class _InterfaceEditaAtividadeState extends State<InterfaceEditaAtividade> {
   var titulo = TextEditingController();
   var dataDeEntrega;
@@ -841,6 +878,23 @@ class _InterfaceAtividadeStatusState extends State<InterfaceAtividadeStatus>
 
                                           },
                                           child: Text("Alterar Status"),
+                                        )),
+                                    PopupMenuItem(
+                                        value: 3,
+                                        child: TextButton(
+                                          onPressed: () {
+                                            setState(() {
+                                              Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          InterfaceLancarNota(
+                                                            atividade:
+                                                            atividades[
+                                                            index],idUsuario: idUsuario,)));
+                                            });
+                                          },
+                                          child: Text("Lançar Nota"),
                                         )),
                                   ],
                                   icon: Icon(Icons.settings),
