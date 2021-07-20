@@ -12,7 +12,7 @@ import 'dataBase.dart';
 class Evento implements EventInterface {
   final DateTime date;
   final String? title;
-  final String? disciplina;
+  final int? disciplina;
   String status;
   String prioridade;
   Widget? icon;
@@ -44,7 +44,7 @@ class Evento implements EventInterface {
     return title;
   }
 
-  String? getDisciplina() {
+  int? getDisciplina() {
     return disciplina;
   }
 
@@ -173,7 +173,7 @@ class _CalendarioState extends State<Calendario> {
       weekFormat: false,
 //      firstDayOfWeek: 4,
       markedDatesMap: _markedDateMap,
-      height: 420.0,
+      height: 300.0,
       selectedDateTime: _currentDate2,
       targetDateTime: _targetDateTime,
       customGridViewPhysics: NeverScrollableScrollPhysics(),
@@ -281,7 +281,7 @@ class _CalendarioState extends State<Calendario> {
                 margin: EdgeInsets.symmetric(horizontal: 12.0,vertical: 8.00),
               ),
               Container(
-                  height: 130.00,
+                  height: 240.00,
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.black, width: 3),
                   ),

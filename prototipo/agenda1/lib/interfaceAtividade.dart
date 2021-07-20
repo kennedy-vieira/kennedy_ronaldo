@@ -891,16 +891,23 @@ class _InterfaceAtividadeStatusState extends State<InterfaceAtividadeStatus>
                                     PopupMenuItem(
                                         value: 3,
                                         child: TextButton(
+
                                           onPressed: () {
-                                            dbController().alteraStatus(atividades[index]);
-                                            dbController().aumentaXp(usuario, 50);
-                                             setState(() {
-                                              atividades.removeAt(index);
-                                             });
+                                            if(arg != 'Concluido') {
+                                              dbController().alteraStatus(
+                                                  atividades[index]);
+                                              dbController().aumentaXp(
+                                                  usuario, 50);
+                                              setState(() {
+                                                atividades.removeAt(index);
+                                              });
+                                            }
+                                            Navigator.pop(context);
                                           },
                                           child: Text("Concluir Atividade"),
 
                                         )),
+
                                     // PopupMenuItem(
                                     //     value: 3,
                                     //     child: TextButton(
@@ -930,6 +937,7 @@ class _InterfaceAtividadeStatusState extends State<InterfaceAtividadeStatus>
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
+
         onPressed: () {
           Navigator.push(
               context,
