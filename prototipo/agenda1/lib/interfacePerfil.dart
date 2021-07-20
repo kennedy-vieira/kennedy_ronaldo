@@ -26,25 +26,25 @@ class _InterfacePerfilState extends State<InterfacePerfil> {
   @override
   void initState() {
     super.initState();
-    carregaListas();
+    carregaUsuario();
   }
 
-  void carregaListas() async {
+
+  var usuario;
+  void carregaUsuario() async{
     var usuarios = await dbController().getUsuarios();
-    var auxUserXp = 0;
-    usuarios.forEach((user) {
-      if(user.id == this.idUsuario){
-        auxUserXp = user.experiencia;
-      }
-    });
     setState(() {
-      xp = auxUserXp;
+      usuario = usuarios[0];
+      xp = usuarios[0].experiencia != null ? usuarios[0].experiencia : 0;
     });
   }
+
+
 
 
   @override
   Widget build(BuildContext context){
+    print(xp);
     getLevel();
     return Scaffold(
       appBar: AppBar(

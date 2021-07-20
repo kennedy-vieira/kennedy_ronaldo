@@ -12,7 +12,7 @@ import 'usuario.dart';
 //local da aplicação
 class dbController {
   String createTableUsuario =
-      'CREATE TABLE usuarios (nome TEXT,expericencia INTEGER,id INTEGER PRIMARY KEY AUTOINCREMENT)';
+      'CREATE TABLE usuarios (nome TEXT,experiencia INTEGER,id INTEGER PRIMARY KEY AUTOINCREMENT)';
 
   String createTableDisciplina =
       'CREATE TABLE disciplinas (nome TEXT,codDisciplina TEXT UNIQUE,'
@@ -69,6 +69,57 @@ class dbController {
         id: maps[i]['id'],
       );
     });
+  }
+
+  Future<List<Usuario>> getUsuario(int idUsuario) async {
+    WidgetsFlutterBinding.ensureInitialized();
+    final database = openDatabase(
+      join(await getDatabasesPath(), 'usuarios.db'),
+      onCreate: (db, version) {
+        return db.execute(
+          createTableUsuario,
+        );
+      },
+      version: 1,
+    );
+    final db = await database;
+
+
+    final List<Map<String, dynamic>> maps = await db.query('usuarios', where: 'id = ?', whereArgs: [idUsuario]);
+
+    return List.generate(maps.length, (i) {
+      return Usuario(
+        nome: maps[0]['nome'],
+        experiencia: maps[0]['experiencia'],
+        id: maps[0]['id'],
+      );
+    });
+  }
+
+
+
+  Future<void> aumentaXp(Usuario usuario, int xp) async {
+    WidgetsFlutterBinding.ensureInitialized();
+    final database = openDatabase(
+      join(await getDatabasesPath(), 'usuarios.db'),
+      onCreate: (db, version) {
+        return db.execute(
+          createTableAtividade,
+        );
+      },
+      version: 1,
+    );
+
+    usuario.experiencia += xp;
+
+    final db = await database;
+
+    await db.update(
+      'usuarios',
+      usuario.toMap(),
+      where: 'id = ?',
+      whereArgs: [usuario.id],
+    );
   }
 
   Future<void> updateUsuario(Usuario usuario) async {
@@ -300,7 +351,7 @@ class dbController {
       },
       version: 1,
     );
-    atividade.status ==  'Concluido' ? atividade.status = 'A fazer' : atividade.status = 'Concluido';
+    atividade.status = 'Concluido';
 
     final db = await database;
 

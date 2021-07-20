@@ -26,4 +26,8 @@ class Usuario{
     };
   }
 
+  getUsuario(int idUsuario){
+
+  }
+
 }

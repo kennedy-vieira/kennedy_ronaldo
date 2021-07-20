@@ -1,4 +1,5 @@
 import 'package:agenda/interfaceLogin.dart';
+import 'package:agenda/usuario.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
@@ -14,6 +15,7 @@ void main() {
 class MyApp extends StatelessWidget {
 
 
+
   _carregaUsuario()async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
    var r = await prefs.getInt('idUser');
@@ -21,7 +23,8 @@ class MyApp extends StatelessWidget {
      idUsuario = -1;
    else idUsuario = r;
   }
-  int idUsuario = 0 ;
+
+  int idUsuario = 1;
 
   //se id usuario for -1 isso indica que é necessario pedir para o usuario criar uma conta
   //ou escolher um perfil existente
@@ -30,6 +33,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //_carregaUsuario();
+
+    //print(usuarios[0]);
     if(idUsuario == -1)//idUsuario == -1
       return MaterialApp(
         title: 'Agenda',
@@ -54,6 +59,8 @@ class MyHomePage extends StatefulWidget {
    MyHomePage({Key? key, required this.title, required this.idUsuario}) : super(key: key);
 
 
+
+
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
   // how it looks.
@@ -74,12 +81,25 @@ class _MyHomePageState extends State<MyHomePage> {
   final int idUsuario;
   _MyHomePageState(this.idUsuario);
 
+
+
+
   var atividades = [];
   var atividadePrincipal;
+  var usuarios;
   @override
   void initState() {
     super.initState();
     carregaListas();
+    carregaUsuario();
+  }
+
+  void carregaUsuario() async{
+    usuarios = await dbController().getUsuarios();
+    if(usuarios.length == 0){
+      dbController().criaUsuario('Sistema');
+    }
+
   }
 
   void carregaListas() async {
@@ -108,6 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+
 
     return Scaffold(
       appBar: AppBar(

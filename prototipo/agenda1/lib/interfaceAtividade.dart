@@ -1,3 +1,5 @@
+//import 'dart:html';
+
 import 'atividade.dart';
 import 'dataBase.dart';
 import 'interfaceDisciplina.dart';
@@ -8,6 +10,8 @@ import 'utilitarios.dart';
 
 class InterfaceAtividade extends StatefulWidget {
   final int idUsuario;
+
+
   InterfaceAtividade(this.idUsuario);
   @override
   _InterfaceAtividadeState createState() => _InterfaceAtividadeState(idUsuario);
@@ -17,13 +21,20 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
   final int idUsuario;
   var disciplinas = [];
   var atividades = [];
+  var xpConcluirAtividade = 50;
   _InterfaceAtividadeState(this.idUsuario);
   @override
   void initState() {
     super.initState();
     carregaListas();
+    carregaUsuario();
   }
 
+  var usuario;
+  void carregaUsuario() async{
+    var usuarios = await dbController().getUsuarios();
+    usuario = usuarios[0];
+  }
   void carregaListas() async {
     var auxDisciplinas = await dbController().getDisciplinas(idUsuario);
     var auxAtividades = await dbController().getAtividades(idUsuario);
@@ -31,6 +42,7 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
     setState(() {
       disciplinas = auxDisciplinas;
       atividades = auxAtividadesOrdenadas;
+
     });
   }
 
@@ -631,15 +643,15 @@ class _InterfaceEditaAtividadeState extends State<InterfaceEditaAtividade> {
 
             dbController().updateAtividades(Atividade(
                 dataDeEntrega: dateEntrega.toString(),
-                titulo: titulo.text,
-                prioridade: prioridadesDropdownValue,
+                titulo:  titulo.text,
+                prioridade:  prioridadesDropdownValue,
                 idDisciplina:
                 getCodDisciplinas(dropdownValue, listaDisciplinas),
                 status: "A fazer",
                 notaAlcancada: notaObtida.text,
                 notaAtividade: notaAtividade.text));
             Navigator.pop(context);
-          }),
+           }),
     );
   }
 
@@ -700,6 +712,14 @@ class _InterfaceAtividadeStatusState extends State<InterfaceAtividadeStatus>
   void initState() {
     super.initState();
     carregaListas();
+    carregaUsuario();
+  }
+
+
+  var usuario;
+  void carregaUsuario() async{
+    var usuarios = await dbController().getUsuarios();
+    usuario = usuarios[0];
   }
 
   void carregaListas() async {
@@ -846,6 +866,7 @@ class _InterfaceAtividadeStatusState extends State<InterfaceAtividadeStatus>
                                         value: 1,
                                         child: TextButton(
                                           onPressed: () {
+                                            print(atividades);
                                             dbController().deleteAtividades(
                                                 atividades[index].id);
                                             Navigator.pop(context);
@@ -871,31 +892,32 @@ class _InterfaceAtividadeStatusState extends State<InterfaceAtividadeStatus>
                                         value: 3,
                                         child: TextButton(
                                           onPressed: () {
-                                            setState(() {
-                                              atividades.removeAt(index);
-                                            });
                                             dbController().alteraStatus(atividades[index]);
+                                            dbController().aumentaXp(usuario, 50);
+                                             setState(() {
+                                              atividades.removeAt(index);
+                                             });
+                                          },
+                                          child: Text("Concluir Atividade"),
 
-                                          },
-                                          child: Text("Alterar Status"),
                                         )),
-                                    PopupMenuItem(
-                                        value: 3,
-                                        child: TextButton(
-                                          onPressed: () {
-                                            setState(() {
-                                              Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          InterfaceLancarNota(
-                                                            atividade:
-                                                            atividades[
-                                                            index],idUsuario: idUsuario,)));
-                                            });
-                                          },
-                                          child: Text("Lançar Nota"),
-                                        )),
+                                    // PopupMenuItem(
+                                    //     value: 3,
+                                    //     child: TextButton(
+                                    //       onPressed: () {
+                                    //         setState(() {
+                                    //           Navigator.push(
+                                    //               context,
+                                    //               MaterialPageRoute(
+                                    //                   builder: (context) =>
+                                    //                       InterfaceLancarNota(
+                                    //                         atividade:
+                                    //                         atividades[
+                                    //                         index],idUsuario: idUsuario,)));
+                                    //         });
+                                    //       },
+                                    //       child: Text("Lançar Nota"),
+                                    //     )),
                                   ],
                                   icon: Icon(Icons.settings),
                                 ),
