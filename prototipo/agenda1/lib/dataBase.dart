@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'disciplina.dart';
 import 'atividade.dart';
@@ -24,6 +25,18 @@ class dbController {
       'titulo TEXT,idUsuario INTEGER,status TEXT,idDisciplina INTEGER,prioridade INTEGER,id '
       'INTEGER PRIMARY KEY AUTOINCREMENT,notaAtividade REAL,notaAlcancada REAL)';
 
+  Future<int> getIdUsuarioAtual() async
+  {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var r = await prefs.getInt('idUser');
+    if(r == null)
+      return  -1;
+    else return r;
+  }
+  void setIdUsuarioAtual(int id) async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setInt('idUser', id);
+  }
   /*=========================TABELAS USUARIOS==============================*/
   Future<void> criaUsuario(String nome) async {
     Usuario user = Usuario(nome: nome,experiencia: 0);

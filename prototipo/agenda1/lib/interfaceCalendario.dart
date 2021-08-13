@@ -12,7 +12,7 @@ import 'dataBase.dart';
 class Evento implements EventInterface {
   final DateTime date;
   final String? title;
-  final int? disciplina;
+  final String? disciplina;
   String status;
   String prioridade;
   Widget? icon;
@@ -26,7 +26,7 @@ class Evento implements EventInterface {
       this.id,
       required this.disciplina,
       required this.prioridade,
-      required this.status}) {}
+      required this.status});
 
   DateTime getDate() {
     return date;
@@ -44,7 +44,7 @@ class Evento implements EventInterface {
     return title;
   }
 
-  int? getDisciplina() {
+  String? getDisciplina() {
     return disciplina;
   }
 
@@ -127,11 +127,11 @@ class _CalendarioState extends State<Calendario> {
     List<Evento> aa = [];
     for (int i = 0; i < listaAtividades.length; i++) {
       aa.add(Evento(
-          title: listaAtividades[i].titulo,
+          title: listaAtividades[i].titulo.toString(),
           date: DateTime.parse(listaAtividades[i].dataDeEntrega),
-          disciplina: listaAtividades[i].idDisciplina,
-          status: listaAtividades[i].status,
-          prioridade: listaAtividades[i].prioridade));
+          disciplina: listaAtividades[i].idDisciplina.toString(),
+          status: listaAtividades[i].status.toString(),
+          prioridade: listaAtividades[i].prioridade.toString()));
     }
     for (int i = 0; i < aa.length; i++) {
       aa[i].icon = ico;

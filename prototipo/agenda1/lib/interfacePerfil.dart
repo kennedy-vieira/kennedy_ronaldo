@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:path/path.dart';
 import 'utilitarios.dart';
 import 'dataBase.dart';
 
@@ -77,7 +76,7 @@ class _InterfacePerfilState extends State<InterfacePerfil> {
               child: LinearProgressIndicator(
                 value: levelProgress,
                 minHeight: 10,
-                color: Colors.green,
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
 
               ),
             ),
