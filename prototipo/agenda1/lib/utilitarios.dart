@@ -5,6 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'interfaceCalendario.dart';
 import 'interfacePerfil.dart';
+import 'dataBase.dart';
+import 'main.dart';
 
 //Esse aquivo contem metodos com funções que retornam metodos de UI
 //que serão utilizados em toda a aplicação
@@ -89,6 +91,18 @@ Widget gaveta(BuildContext context,int idUsuario) {
                  MaterialPageRoute(
                      builder: (context) =>  InterfacePerfil(idUsuario)));
            },
+        ),
+        ListTile(
+          leading: Icon(Icons.logout),
+          title: Text('Sair'),
+          onTap: () {
+            dbController().setIdUsuarioAtual(-1);
+            Navigator.of(context).popUntil((route) => route.isFirst);//tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>  MyApp()));
+          },
         ),
       ],
     ),
