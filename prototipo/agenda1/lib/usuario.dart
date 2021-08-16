@@ -3,7 +3,7 @@ class Usuario{
   var experiencia;
   var id;
 
-  Usuario({this.nome, this.experiencia,this.id});
+  Usuario({required this.nome, this.experiencia,this.id});
 
   Map<String, dynamic> toMap() {
     return {

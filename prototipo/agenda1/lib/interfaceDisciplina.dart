@@ -38,6 +38,7 @@ class _InterfaceDisciplinaState extends State<InterfaceDisciplina> {
         ),
         endDrawer: gaveta(context,idUsuario),
         body: Center(
+
           child: ListView.builder(
               itemCount: disciplinas.length,
               itemBuilder: (context, index) {
@@ -55,6 +56,7 @@ class _InterfaceDisciplinaState extends State<InterfaceDisciplina> {
                                   disciplinas[index].codDisciplina.toString()),
                             ]),
                             Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 TextButton(
                                   onPressed: () {},

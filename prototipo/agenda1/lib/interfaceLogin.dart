@@ -12,28 +12,45 @@ class InterfaceBemVindo extends StatelessWidget {
       appBar: AppBar(
         title: Text('Bem Vindo'),
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: [
-              TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => InterfaceSelecionaUsuario()));
-                  },
-                  child: Text('Login')),
-              TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => InterfaceCadastroUsuario()));
-                  },
-                  child: Text('Novo usuario')),
-            ],
-          ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black,width: 3),
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Column(
+
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => InterfaceSelecionaUsuario()));
+                          },
+                          child: Text('Login')),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => InterfaceCadastroUsuario()));
+                          },
+                          child: Text('Novo usuario')),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -120,27 +137,31 @@ class _InterfaceCadastroUsuarioState extends State<InterfaceCadastroUsuario> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Nova Disciplina'),
+          title: Text('Novo Usuario'),
         ),
-        body: Column(children: <Widget>[
-          Container(
-              margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-              child: TextField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(), labelText: 'Nome do usuario'),
-                controller: nomeUsuario,
-              )),
-          Container(
-              margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-              child: TextButton(
-                onPressed: () {
-                  if (nomeUsuario.text.isNotEmpty) {
-                    dbController().criaUsuario(nomeUsuario.text);
-                  }
-                  Navigator.pop(context);
-                },
-                child: Text('salvar'),
-              )),
-        ]));
+        body: Center(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+            Container(
+                margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(), labelText: 'Nome do usuario'),
+                  controller: nomeUsuario,
+                )),
+            Container(
+                margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+                child: TextButton(
+                  onPressed: () {
+                    if (nomeUsuario.text.isNotEmpty) {
+                      dbController().criaUsuario(nomeUsuario.text);
+                    }
+                    Navigator.pop(context);
+                  },
+                  child: Text('salvar'),
+                )),
+          ]),
+        ));
   }
 }
