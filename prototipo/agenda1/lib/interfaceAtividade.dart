@@ -378,6 +378,7 @@ class _InterfaceNovaAtividadeState extends State<InterfaceNovaAtividade> {
       floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.save),
           onPressed: () {
+            if(dateEntrega != null){
             dbController().insereAtividade(Atividade(
                 dataDeEntrega: dateEntrega.toString(),
                 idUsuario: idUsuario,
@@ -389,10 +390,19 @@ class _InterfaceNovaAtividadeState extends State<InterfaceNovaAtividade> {
                 notaAlcancada: "",
                 notaAtividade: notaAtividade.text));
             Navigator.pop(context);
+          }
+            else{
+              Navigator.of(context).restorablePush(_dialogBuilder);
+            }
           }),
     );
   }
-
+  static Route<Object?> _dialogBuilder(BuildContext context, Object? arguments) {
+    return DialogRoute<void>(
+      context: context,
+      builder: (BuildContext context) => const AlertDialog(title: Text('Data não pode ser vazia')),
+    );
+  }
   String formatSelectedDate() {
     if (dateEntrega == null) {
       return 'Selecione a data';
@@ -416,6 +426,7 @@ class _InterfaceNovaAtividadeState extends State<InterfaceNovaAtividade> {
     setState(() {
       dateEntrega = newDate;
     });
+
   }
 
   String getCodDisciplinas(String str, List<Disciplina> listaDeDisciplinas) {
@@ -496,7 +507,6 @@ class _InterfaceEditaAtividadeState extends State<InterfaceEditaAtividade> {
     prioridadesDropdownValue = atividade.prioridade;
     notaAtividade.text = atividade.notaAtividade.toString();
     dateEntrega = DateTime.parse(atividade.dataDeEntrega);
-
 
   }
 
@@ -650,6 +660,7 @@ class _InterfaceEditaAtividadeState extends State<InterfaceEditaAtividade> {
                 status: "A fazer",
                 notaAlcancada: notaObtida.text,
                 notaAtividade: notaAtividade.text));
+
             Navigator.pop(context);
            }),
     );

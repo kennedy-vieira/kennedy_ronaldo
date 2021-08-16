@@ -1,9 +1,6 @@
 import 'package:agenda/interfaceLogin.dart';
-import 'package:agenda/usuario.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
-import 'interfaceDisciplina.dart';
 import 'utilitarios.dart';
 import 'atividade.dart';
 import 'dataBase.dart';
@@ -15,19 +12,16 @@ void main() {
 class MyApp extends StatelessWidget {
 
   int idUsuario = -1;
-  //se id usuario for -1 isso indica que é necessario pedir para o usuario criar uma conta
-  //ou escolher um perfil existente
-
 
   void carregaUsuario() async{
     idUsuario =await dbController().getIdUsuarioAtual();
   }
+
   @override
   Widget build(BuildContext context) {
     carregaUsuario();
 
-    //print(usuarios[0]);
-    if(idUsuario == -1)//idUsuario == -1
+    if(idUsuario == -1)
       return MaterialApp(
         title: 'Agenda',
         theme: ThemeData(
@@ -73,10 +67,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void carregaUsuario() async{
     usuarios =await dbController().getIdUsuarioAtual();
-    if(usuarios.length == 0){
-      dbController().criaUsuario('Sistema');
-    }
-
   }
 
   void carregaListas() async {
@@ -98,18 +88,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       appBar: AppBar(
-
         title: Text(widget.title),
       ),
       endDrawer: gaveta(context,idUsuario),
       body: Center(
-
         child: Column(
-
           //mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
@@ -154,7 +139,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Column(
-
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: getAtividadePrincipal(),
                   ),
@@ -164,7 +148,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-     // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
@@ -194,6 +177,5 @@ class _MyHomePageState extends State<MyHomePage> {
       DateTime dataAtual = DateTime.now();
       var data ='${dataAtual.day}/${dataAtual.month}/${dataAtual.year}';
       return data;
-
   }
 }

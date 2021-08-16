@@ -109,6 +109,8 @@ class _InterfaceSelecionaUsuarioState extends State<InterfaceSelecionaUsuario> {
                       child: TextButton(
                         child: Text(listausuarios[index].nome),
                         onPressed: () {
+                          dbController().setIdUsuarioAtual(listausuarios[index].id);
+                          Navigator.pop(context);
                           Navigator.push(
                               context,
                               MaterialPageRoute(
