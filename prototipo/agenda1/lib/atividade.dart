@@ -13,7 +13,7 @@ class Atividade {
       {this.dataDeEntrega,
       this.titulo,
       this.idUsuario,
-      this.prioridade,
+      required this.prioridade,
       this.idDisciplina,
       this.id,
       this.status,
@@ -34,4 +34,14 @@ class Atividade {
       'notaAtividade': notaAtividade,
     };
   }
+  int getPrioridadeint()
+  {
+    if(this.prioridade.toString() == 'Alta')
+      {return 1;}
+    if(this.prioridade.toString() == 'Media')
+    {return 2;}
+    else
+    {return 3;}
+  }
+
 }

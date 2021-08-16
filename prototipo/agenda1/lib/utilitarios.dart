@@ -31,7 +31,17 @@ Widget gaveta(BuildContext context,int idUsuario) {
             ),
           ),
         ),
-
+        ListTile(
+          leading: Icon(Icons.home),
+          title: Text('Home'),
+          onTap: () {
+            Navigator.pop(context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>  MyHomePage(title: 'Página Inicial',idUsuario: idUsuario,)));
+          },
+        ),
         ListTile(
           leading: Icon(Icons.calendar_today_outlined),
           title: Text('Calendario'),

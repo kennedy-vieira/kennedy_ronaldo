@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void carregaUsuario() async{
-    usuarios = await dbController().getUsuarios();
+    usuarios =await dbController().getIdUsuarioAtual();
     if(usuarios.length == 0){
       dbController().criaUsuario('Sistema');
     }
@@ -90,17 +90,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<List<Atividade>> ordenaAtividades(List<Atividade> atividades) async{
-
-    List<Atividade> atividadesOrdenadas = [];
     List<Atividade> atividadesDesordenadas = atividades;
-    for(var i = 0;i < atividadesDesordenadas.length;i++){
-      if(atividadesDesordenadas[i].prioridade == 'Alta'){
-        atividadesOrdenadas.add(atividadesDesordenadas[i]);
-      }
-    }
-
-
-    return atividadesOrdenadas;
+    atividadesDesordenadas.sort((Atividade a , Atividade b)=> a.getPrioridadeint().compareTo(b.getPrioridadeint()));
+    return atividadesDesordenadas;
   }
 
 
