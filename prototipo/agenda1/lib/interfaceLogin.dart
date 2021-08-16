@@ -78,22 +78,15 @@ class _InterfaceSelecionaUsuarioState extends State<InterfaceSelecionaUsuario> {
     carregausuarios();
   }
 
+
   @override
   Widget build(BuildContext context) {
     if (listausuarios.length == 0) {
-      return Scaffold(
-          appBar: AppBar(
-            title: Text('Login'),
-          ),
-          body: TextButton(
-            child: Text('Cadastre um usuario primeiro'),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => InterfaceCadastroUsuario()));
-            },
-          ));
+     return  Scaffold(
+         appBar: AppBar(
+         title: Text('Login'),
+    ),
+    body:AlertDialog(title: Text('Cadastre um usuario primeiro')),);
     } else {
       return Scaffold(
         appBar: AppBar(
