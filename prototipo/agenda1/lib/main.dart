@@ -182,6 +182,7 @@ class _MyHomePageState extends State<MyHomePage> {
             atividadePrincipal.notaAtividade.toString()),
         Text('Nota obtida : ' +
             atividadePrincipal.notaAlcancada.toString()),
+        Text('Descrição : ' + (atividadePrincipal.descricao.toString() == 'null' ? ' ' :atividadePrincipal.descricao.toString() )),
       ];
     }
   }

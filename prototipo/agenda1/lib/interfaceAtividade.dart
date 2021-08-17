@@ -137,6 +137,7 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
                                     atividades[index].notaAtividade.toString()),
                                 Text('Nota obtida : ' +
                                     atividades[index].notaAlcancada.toString()),
+                                Text('Descrição : ' + (atividades[index].descricao.toString() == 'null' ? ' ' :atividades[index].descricao.toString() )),
                               ]),
                           Column(
                             children: [
@@ -833,8 +834,7 @@ class _InterfaceAtividadeStatusState extends State<InterfaceAtividadeStatus>
                                     atividades[index].notaAtividade.toString()),
                                 Text('Nota obtida : ' +
                                     atividades[index].notaAlcancada.toString()),
-                                Text('Descricao : ' +
-                                    atividades[index].descricao.toString() ),
+                                Text('Descrição : ' + (atividades[index].descricao.toString() == 'null' ? ' ' :atividades[index].descricao.toString() )),
                               ]),
                           Column(
                             children: [
