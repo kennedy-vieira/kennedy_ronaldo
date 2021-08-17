@@ -23,26 +23,40 @@ class MyApp extends StatelessWidget {
 
     if(idUsuario == -1)
       return MaterialApp(
-        title: 'Agenda',
-        theme: ThemeData(
-          primarySwatch: Colors.blueGrey,
-        ),
-        home : InterfaceBemVindo()
+          title: 'Agenda',
+          theme: ThemeData(
+            primarySwatch: Colors.grey,
+          ),
+          home : InterfaceBemVindo()
       );
     else{
-    return MaterialApp(
-      title: 'Agenda',
-      theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
-      ),
-      home: MyHomePage(title: 'Página Inicial',idUsuario: idUsuario,),
-    );
+      return MaterialApp(
+        title: 'Agenda',
+        // theme: ThemeData(
+        //   primarySwatch: Colors.blueGrey,
+        //   textTheme: TextTheme(
+        //     bodyText2: TextStyle(color: Colors.purple),
+        //     bodyText1: TextStyle(color: Colors.blue),
+        //
+        //   ),
+        // ),
+        theme: ThemeData(
+          primarySwatch: Colors.grey,
+          primaryColor: Colors.black,
+          brightness: Brightness.dark,
+          backgroundColor: const Color(0xFF212121),
+          accentColor: Colors.white,
+          accentIconTheme: IconThemeData(color: Colors.black),
+          dividerColor: Colors.black12,
+        ),
+        home: MyHomePage(title: 'Página Inicial',idUsuario: idUsuario,),
+      );
+    }
   }
-}
 }
 
 class MyHomePage extends StatefulWidget {
-   MyHomePage({Key? key, required this.title, required this.idUsuario}) : super(key: key);
+  MyHomePage({Key? key, required this.title, required this.idUsuario}) : super(key: key);
 
   final String title;
   final int idUsuario;
@@ -79,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  List<Atividade> ordenaAtividades(List<Atividade> atividades) {
+  Future<List<Atividade>> ordenaAtividades(List<Atividade> atividades) async{
     List<Atividade> atividadesDesordenadas = atividades;
     atividadesDesordenadas.sort((Atividade a , Atividade b)=> a.getPrioridadeint().compareTo(b.getPrioridadeint()));
     return atividadesDesordenadas;
@@ -174,8 +188,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
   String formatSelectedDate(){
-      DateTime dataAtual = DateTime.now();
-      var data ='${dataAtual.day}/${dataAtual.month}/${dataAtual.year}';
-      return data;
+    DateTime dataAtual = DateTime.now();
+    var data ='${dataAtual.day}/${dataAtual.month}/${dataAtual.year}';
+    return data;
   }
 }

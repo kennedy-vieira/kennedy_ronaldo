@@ -20,13 +20,13 @@ class Evento implements EventInterface {
   final int? id;
   Evento(
       {required this.date,
-      required this.title,
-      this.icon,
-      this.dot,
-      this.id,
-      required this.disciplina,
-      required this.prioridade,
-      required this.status});
+        required this.title,
+        this.icon,
+        this.dot,
+        this.id,
+        required this.disciplina,
+        required this.prioridade,
+        required this.status});
 
   DateTime getDate() {
     return date;
@@ -169,6 +169,12 @@ class _CalendarioState extends State<Calendario> {
       weekendTextStyle: TextStyle(
         color: Colors.red,
       ),
+      weekdayTextStyle: TextStyle(
+        color: Colors.white,
+      ),
+      daysTextStyle: TextStyle(
+        color: Colors.white,
+      ),
       thisMonthDayBorderColor: Colors.grey,
       weekFormat: false,
 //      firstDayOfWeek: 4,
@@ -178,7 +184,7 @@ class _CalendarioState extends State<Calendario> {
       targetDateTime: _targetDateTime,
       customGridViewPhysics: NeverScrollableScrollPhysics(),
       markedDateCustomShapeBorder:
-          CircleBorder(side: BorderSide(color: Colors.yellow)),
+      CircleBorder(side: BorderSide(color: Colors.yellow)),
       markedDateCustomTextStyle: TextStyle(
         fontSize: 18,
         color: Colors.blue,
@@ -241,12 +247,12 @@ class _CalendarioState extends State<Calendario> {
                   children: <Widget>[
                     Expanded(
                         child: Text(
-                      _currentMonth,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24.0,
-                      ),
-                    )),
+                          _currentMonth,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24.0,
+                          ),
+                        )),
                     TextButton(
                       child: Text('Ant.'),
                       onPressed: () {
@@ -294,22 +300,22 @@ class _CalendarioState extends State<Calendario> {
                             child: Container(
                                 child: Row(
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    CrossAxisAlignment.start,
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment:
-                                        MainAxisAlignment.start,
+                                    MainAxisAlignment.start,
                                     children: [
-                                  Column(
-                                    crossAxisAlignment:
+                                      Column(
+                                        crossAxisAlignment:
                                         CrossAxisAlignment.start,
-                                    children: [
-                                      Text('Titulo : ' +
-                                          EventosDia[index].getTitle()!),
-                                      Text('prioridade :' +
-                                          EventosDia[index].getPrioridade()),
-                                    ],
-                                  )
-                                ])));
+                                        children: [
+                                          Text('Titulo : ' +
+                                              EventosDia[index].getTitle()!),
+                                          Text('prioridade :' +
+                                              EventosDia[index].getPrioridade()),
+                                        ],
+                                      )
+                                    ])));
                       }))
             ],
           ),
