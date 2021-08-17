@@ -21,7 +21,7 @@ Widget gaveta(BuildContext context,int idUsuario) {
       children: <Widget>[
         DrawerHeader(
           decoration: BoxDecoration(
-            color: Colors.blueGrey,
+            color: const Color(0xFF212121),
           ),
           child: Text(
             'Menu',
@@ -45,41 +45,41 @@ Widget gaveta(BuildContext context,int idUsuario) {
         ListTile(
           leading: Icon(Icons.calendar_today_outlined),
           title: Text('Calendario'),
-           onTap: () {
-             Navigator.pop(context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
-             Navigator.push(
-                 context,
-                 MaterialPageRoute(
-                     builder: (context) =>  Calendario(title: "Calendario",idUsuario: idUsuario,)));
-           },
+          onTap: () {
+            Navigator.pop(context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>  Calendario(title: "Calendario",idUsuario: idUsuario,)));
+          },
         ),
         ExpansionTile(title: Text('Atividades'),
           leading: Icon(Icons.account_balance_wallet_sharp),
           children: [
-          TextButton(onPressed: (){
-            Navigator.pop(context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>  InterfaceAtividade(idUsuario)));
-          }, child: Text('Todas')),
+            TextButton(onPressed: (){
+              Navigator.pop(context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>  InterfaceAtividade(idUsuario)));
+            }, child: Text('Todas')),
 
-          TextButton(onPressed: (){
-            Navigator.pop(context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>  InterfaceAtividadeStatus('Concluido',idUsuario)));
-          }, child: Text('Concluidas')),
+            TextButton(onPressed: (){
+              Navigator.pop(context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>  InterfaceAtividadeStatus('Concluido',idUsuario)));
+            }, child: Text('Concluidas')),
 
-          TextButton(onPressed: (){
-            Navigator.pop(context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>  InterfaceAtividadeStatus('A fazer',idUsuario)));
-          }, child: Text('A fazer')),
-        ],),
+            TextButton(onPressed: (){
+              Navigator.pop(context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>  InterfaceAtividadeStatus('A fazer',idUsuario)));
+            }, child: Text('A fazer')),
+          ],),
         ListTile(
           leading: Icon(Icons.apartment_sharp),
           title: Text('Disciplinas'),
@@ -94,13 +94,13 @@ Widget gaveta(BuildContext context,int idUsuario) {
         ListTile(
           leading: Icon(Icons.person),
           title: Text('Perfil'),
-           onTap: () {
-             Navigator.pop(context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
-             Navigator.push(
-                 context,
-                 MaterialPageRoute(
-                     builder: (context) =>  InterfacePerfil(idUsuario)));
-           },
+          onTap: () {
+            Navigator.pop(context); //tira a gaveta do navegador pra quando vc voltar a gaveta vai estar fechada
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>  InterfacePerfil(idUsuario)));
+          },
         ),
         ListTile(
           leading: Icon(Icons.logout),
