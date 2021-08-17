@@ -79,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  Future<List<Atividade>> ordenaAtividades(List<Atividade> atividades) async{
+  List<Atividade> ordenaAtividades(List<Atividade> atividades) {
     List<Atividade> atividadesDesordenadas = atividades;
     atividadesDesordenadas.sort((Atividade a , Atividade b)=> a.getPrioridadeint().compareTo(b.getPrioridadeint()));
     return atividadesDesordenadas;

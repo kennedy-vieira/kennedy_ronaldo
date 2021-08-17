@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dataBase.dart';
 import 'utilitarios.dart';
+import 'package:agenda/interfaceAtividade.dart';
 
 class InterfaceDisciplina extends StatefulWidget {
   final int idUsuario;
@@ -77,6 +78,14 @@ class _InterfaceDisciplinaState extends State<InterfaceDisciplina> {
                                             },
                                             child: Text("Excluir"),
                                           )),
+                                      PopupMenuItem(
+                                        value:2,
+                                        child: TextButton(onPressed: (){
+                                          Navigator.push(context,
+                                              MaterialPageRoute(builder: (context) => InterfaceAtividadeDisciplina(idUsuario,disciplinas[index].codDisciplina,disciplinas[index].nome.toString())));
+                                        },
+                                        child : Text('Ver atividades'),)
+                                      ),
                                     ],
                                     icon: Icon(Icons.settings),
                                   ),

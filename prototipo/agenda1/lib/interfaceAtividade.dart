@@ -47,34 +47,11 @@ class _InterfaceAtividadeState extends State<InterfaceAtividade> {
   }
 
   List<Atividade> ordenaAtividades(List<Atividade> atividades) {
-    List<Atividade> atividadesOrdenadas = [];
     List<Atividade> atividadesDesordenadas = atividades;
-    var day, month, year;
-    for (var i = 0; i < atividadesDesordenadas.length; i++) {
-      if (atividadesDesordenadas[i].prioridade == 'Alta') {
-        atividadesOrdenadas.add(atividadesDesordenadas[i]);
-      }
-    }
-    for (var i = 0; i < atividadesDesordenadas.length; i++) {
-      if (atividadesDesordenadas[i].prioridade == 'Media') {
-        atividadesOrdenadas.add(atividadesDesordenadas[i]);
-      }
-    }
-    for (var i = 0; i < atividadesDesordenadas.length; i++) {
-      if (atividadesDesordenadas[i].prioridade == 'Baixa') {
-        atividadesOrdenadas.add(atividadesDesordenadas[i]);
-      }
-    }
-    for (var i = 0; i < atividadesDesordenadas.length; i++) {
-      if (atividadesDesordenadas[i].prioridade != 'Baixa' &&
-          atividadesDesordenadas[i].prioridade != 'Media' &&
-          atividadesDesordenadas[i].prioridade != 'Alta') {
-        atividadesOrdenadas.add(atividadesDesordenadas[i]);
-      }
-    }
-
-    return atividadesOrdenadas;
+    atividadesDesordenadas.sort((Atividade a , Atividade b)=> a.getPrioridadeint().compareTo(b.getPrioridadeint()));
+    return atividadesDesordenadas;
   }
+
   String formatSelectedDate(String data) {
       DateTime data1 = DateTime.parse(data);
       var dat = '${data1.day}/${data1.month}/${data1.year}';
@@ -744,34 +721,11 @@ class _InterfaceAtividadeStatusState extends State<InterfaceAtividadeStatus>
   }
 
   List<Atividade> ordenaAtividades(List<Atividade> atividades) {
-    List<Atividade> atividadesOrdenadas = [];
     List<Atividade> atividadesDesordenadas = atividades;
-    var day, month, year;
-    for (var i = 0; i < atividadesDesordenadas.length; i++) {
-      if (atividadesDesordenadas[i].prioridade == 'Alta') {
-        atividadesOrdenadas.add(atividadesDesordenadas[i]);
-      }
-    }
-    for (var i = 0; i < atividadesDesordenadas.length; i++) {
-      if (atividadesDesordenadas[i].prioridade == 'Media') {
-        atividadesOrdenadas.add(atividadesDesordenadas[i]);
-      }
-    }
-    for (var i = 0; i < atividadesDesordenadas.length; i++) {
-      if (atividadesDesordenadas[i].prioridade == 'Baixa') {
-        atividadesOrdenadas.add(atividadesDesordenadas[i]);
-      }
-    }
-    for (var i = 0; i < atividadesDesordenadas.length; i++) {
-      if (atividadesDesordenadas[i].prioridade != 'Baixa' &&
-          atividadesDesordenadas[i].prioridade != 'Media' &&
-          atividadesDesordenadas[i].prioridade != 'Alta') {
-        atividadesOrdenadas.add(atividadesDesordenadas[i]);
-      }
-    }
-
-    return atividadesOrdenadas;
+    atividadesDesordenadas.sort((Atividade a , Atividade b)=> a.getPrioridadeint().compareTo(b.getPrioridadeint()));
+    return atividadesDesordenadas;
   }
+
   String formatSelectedDate(String data) {
     DateTime data1 = DateTime.parse(data);
     var dat = '${data1.day}/${data1.month}/${data1.year}';
@@ -949,6 +903,173 @@ class _InterfaceAtividadeStatusState extends State<InterfaceAtividadeStatus>
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
 
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => InterfaceNovaAtividade(idUsuario)));
+        },
+      ),
+    );
+  }
+}
+
+
+class InterfaceAtividadeDisciplina extends StatefulWidget {
+  final int idUsuario;
+  final String nomeDisciplina;
+  final String idDisciplina;
+
+  InterfaceAtividadeDisciplina(this.idUsuario, this.idDisciplina,this.nomeDisciplina);
+  @override
+  _InterfaceAtividadeDisciplinaState createState() => _InterfaceAtividadeDisciplinaState(idUsuario, idDisciplina,nomeDisciplina);
+}
+
+class _InterfaceAtividadeDisciplinaState extends State<InterfaceAtividadeDisciplina> {
+  final int idUsuario;
+  final String idDisciplina;
+  final String nomeDisciplina;
+  var atividades = [];
+  var xpConcluirAtividade = 50;
+  _InterfaceAtividadeDisciplinaState(this.idUsuario, this.idDisciplina,this.nomeDisciplina);
+
+  @override
+  void initState() {
+    super.initState();
+    carregaListas();
+  }
+  void carregaListas() async {
+    var auxAtividades = await dbController().getAtividadesDisciplina(idDisciplina.toString(),idUsuario);
+    var auxAtividadesOrdenadas = ordenaAtividades(auxAtividades);
+    setState(() {
+      atividades = auxAtividadesOrdenadas;
+    });
+  }
+
+  List<Atividade> ordenaAtividades(List<Atividade> atividades) {
+    List<Atividade> atividadesDesordenadas = atividades;
+    atividadesDesordenadas.sort((Atividade a , Atividade b)=> a.getPrioridadeint().compareTo(b.getPrioridadeint()));
+    return atividadesDesordenadas;
+  }
+
+  String formatSelectedDate(String data) {
+    DateTime data1 = DateTime.parse(data);
+    var dat = '${data1.day}/${data1.month}/${data1.year}';
+    return dat;
+
+  }
+  @override
+  Widget build(BuildContext context) {
+    carregaListas();
+    if (atividades.isEmpty) {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text("Atividades de " + nomeDisciplina),
+        ),
+        endDrawer: gaveta(context,idUsuario),
+        body: Center(
+          child: Text('Não existem atividades cadastradadas para essa disciplina ainda'),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () {
+            Navigator.pop(
+                context);
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => InterfaceNovaAtividade(idUsuario)));
+          },
+        ),
+      );
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Atividades de " + nomeDisciplina),
+      ),
+      endDrawer: gaveta(context,idUsuario),
+      body: Center(
+        child: ListView.builder(
+            itemCount: atividades.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Container(
+                    child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Titulo : ' +
+                                    atividades[index].titulo.toString()),
+                                Text('Data de entrega : ' + formatSelectedDate(atividades[index].dataDeEntrega)),
+                                Text('Prioridade : ' +
+                                    atividades[index].prioridade.toString()),
+                                Text('Status : ' +
+                                    atividades[index].status.toString()),
+                                Text('Codigo da Disciplina : ' +
+                                    atividades[index].idDisciplina.toString()),
+                                Text('Valor da atividade : ' +
+                                    atividades[index].notaAtividade.toString()),
+                                Text('Nota obtida : ' +
+                                    atividades[index].notaAlcancada.toString()),
+                              ]),
+                          Column(
+                            children: [
+                              TextButton(
+                                onPressed: () {},
+                                child: PopupMenuButton<int>(
+                                  itemBuilder: (context) => [
+                                    PopupMenuItem(
+                                        value: 0,
+                                        child: TextButton(
+                                          style: TextButton.styleFrom(
+                                            primary: Colors.black,
+                                          ),
+                                          child: Text('Menu de opções'),
+                                          onPressed: () {},
+                                        )),
+                                    PopupMenuItem(
+                                        value: 1,
+                                        child: TextButton(
+                                          onPressed: () {
+                                            dbController().deleteAtividades(
+                                                atividades[index].id);
+                                            Navigator.pop(context);
+                                          },
+                                          child: Text("Excluir"),
+                                        )),
+                                    PopupMenuItem(
+                                        value: 2,
+                                        child: TextButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        InterfaceEditaAtividade(
+                                                          atividade:
+                                                          atividades[
+                                                          index],idUsuario: idUsuario,)));
+                                          },
+                                          child: Text("Editar"),
+                                        )),
+                                  ],
+                                  icon: Icon(Icons.settings),
+                                ),
+                              )
+                            ],
+                          ),
+                        ]),
+                  ));
+            }),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
         onPressed: () {
           Navigator.push(
               context,
