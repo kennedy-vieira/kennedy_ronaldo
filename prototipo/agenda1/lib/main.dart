@@ -124,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text(formatSelectedDate(),
+                  Text(formatSelectedDate(DateTime.now().toString()),
                     style: TextStyle(
                       color: Colors.black.withOpacity(0.8),
                       fontSize: 30.0,
@@ -171,6 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+
   List<Widget> getAtividadePrincipal(){
     if(atividadePrincipal == null){
       return [];
@@ -178,7 +179,7 @@ class _MyHomePageState extends State<MyHomePage> {
       return   [
         Text('Titulo : ' + atividadePrincipal.titulo.toString()),
         Text('Data de entrega : ' +
-            atividadePrincipal.dataDeEntrega.toString()),
+            formatSelectedDate(atividadePrincipal.dataDeEntrega)),
         Text(
             'Prioridade : ' + atividadePrincipal.prioridade.toString()),
         Text('Status : ' + atividadePrincipal.status.toString()),
@@ -194,9 +195,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
 
-  String formatSelectedDate(){
-    DateTime dataAtual = DateTime.now();
-    var data ='${dataAtual.day}/${dataAtual.month}/${dataAtual.year}';
+  String formatSelectedDate(String aa){
+    DateTime aaa = DateTime.parse(aa);
+    var data ='${aaa.day}/${aaa.month}/${aaa.year}';
     return data;
   }
 }
