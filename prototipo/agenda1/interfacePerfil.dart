@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'utilitarios.dart';
-import 'dataBase.dart';
+import 'package:agenda/dataBase.dart';
+import 'package:agenda/utilitarios.dart';
 
 class InterfacePerfil extends StatefulWidget {
   final int idUsuario;

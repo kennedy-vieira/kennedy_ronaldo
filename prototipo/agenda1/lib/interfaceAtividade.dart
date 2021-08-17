@@ -216,6 +216,7 @@ class _InterfaceNovaAtividadeState extends State<InterfaceNovaAtividade> {
   var idDisciplina = TextEditingController();
   //var notaAlcancada = TextEditingController();
   var notaAtividade = TextEditingController();
+  var descricao = TextEditingController();
   List<String> disciplinas = [];
   List<Disciplina> listaDisciplinas = [];
   var dropdownValue;
@@ -348,6 +349,15 @@ class _InterfaceNovaAtividadeState extends State<InterfaceNovaAtividade> {
                   ],
                 ),
               ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Descrição:'),
+                  controller: descricao,
+                ),
+              ),
             ],
           ),
         ),
@@ -365,7 +375,8 @@ class _InterfaceNovaAtividadeState extends State<InterfaceNovaAtividade> {
                 getCodDisciplinas(dropdownValue, listaDisciplinas),
                 status: "A fazer",
                 notaAlcancada: "",
-                notaAtividade: notaAtividade.text));
+                notaAtividade: notaAtividade.text,
+                descricao: descricao.text));
             Navigator.pop(context);
           }
             else{
@@ -417,15 +428,7 @@ class _InterfaceNovaAtividadeState extends State<InterfaceNovaAtividade> {
   }
 }
 
-class InterfaceEditaAtividade extends StatefulWidget {
-  final Atividade atividade;
-  final int idUsuario;
-  InterfaceEditaAtividade({required this.atividade,required this.idUsuario}) ;
 
-  @override
-  _InterfaceEditaAtividadeState createState() =>
-      _InterfaceEditaAtividadeState(atividade,idUsuario);
-}
 
 class InterfaceLancarNota extends StatefulWidget {
   final Atividade atividade;
@@ -463,9 +466,18 @@ class _InterfaceLancarNotaState extends State<InterfaceLancarNota> {
   }
 
 }
+class InterfaceEditaAtividade extends StatefulWidget {
+  final Atividade atividade;
+  final int idUsuario;
+  InterfaceEditaAtividade({required this.atividade,required this.idUsuario}) ;
 
+  @override
+  _InterfaceEditaAtividadeState createState() =>
+      _InterfaceEditaAtividadeState(atividade,idUsuario);
+}
 class _InterfaceEditaAtividadeState extends State<InterfaceEditaAtividade> {
   var titulo = TextEditingController();
+  var descricao = TextEditingController();
   var dataDeEntrega;
   var prioridade = TextEditingController();
   var notaAtividade = TextEditingController();
@@ -484,6 +496,7 @@ class _InterfaceEditaAtividadeState extends State<InterfaceEditaAtividade> {
     prioridadesDropdownValue = atividade.prioridade;
     notaAtividade.text = atividade.notaAtividade.toString();
     dateEntrega = DateTime.parse(atividade.dataDeEntrega);
+    descricao.text = atividade.descricao == null ? ' ' : atividade.descricao;
 
   }
 
@@ -618,6 +631,15 @@ class _InterfaceEditaAtividadeState extends State<InterfaceEditaAtividade> {
                       }).toList(),
                     )
                   ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+                child: TextField(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Descrição'),
+                  controller: descricao,
                 ),
               ),
             ],
@@ -811,6 +833,8 @@ class _InterfaceAtividadeStatusState extends State<InterfaceAtividadeStatus>
                                     atividades[index].notaAtividade.toString()),
                                 Text('Nota obtida : ' +
                                     atividades[index].notaAlcancada.toString()),
+                                Text('Descricao : ' +
+                                    atividades[index].descricao.toString() ),
                               ]),
                           Column(
                             children: [

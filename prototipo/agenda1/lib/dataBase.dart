@@ -21,7 +21,7 @@ class dbController {
       'id INTEGER PRIMARY KEY AUTOINCREMENT)';
 
   String createTableAtividade =
-      'CREATE TABLE atividades (dataDeEntrega INTEGER,'
+      'CREATE TABLE atividades (dataDeEntrega INTEGER, descricao TEXT,'
       'titulo TEXT,idUsuario INTEGER,status TEXT,idDisciplina INTEGER,prioridade INTEGER,id '
       'INTEGER PRIMARY KEY AUTOINCREMENT,notaAtividade REAL,notaAlcancada REAL)';
 

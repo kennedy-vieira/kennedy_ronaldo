@@ -8,18 +8,20 @@ class Atividade {
   var notaAlcancada;
   var notaAtividade;
   var idUsuario;
+  var descricao;
 
-  Atividade(
-      {this.dataDeEntrega,
-      this.titulo,
-      this.idUsuario,
-      required this.prioridade,
-      this.idDisciplina,
-      this.id,
-      this.status,
-      this.notaAtividade,
-      this.notaAlcancada,
-      });
+  Atividade({
+    this.dataDeEntrega,
+    this.titulo,
+    this.idUsuario,
+    required this.prioridade,
+    this.idDisciplina,
+    this.id,
+    this.status,
+    this.notaAtividade,
+    this.notaAlcancada,
+    this.descricao,
+  });
 
   Map<String, dynamic> toMap() {
     return {
@@ -32,16 +34,18 @@ class Atividade {
       'status': status,
       'notaAlcancada': notaAlcancada,
       'notaAtividade': notaAtividade,
+      'descricao': descricao,
     };
   }
-  int getPrioridadeint()
-  {
-    if(this.prioridade.toString() == 'Alta')
-      {return 1;}
-    if(this.prioridade.toString() == 'Media')
-    {return 2;}
-    else
-    {return 3;}
-  }
 
+  int getPrioridadeint() {
+    if (this.prioridade.toString() == 'Alta') {
+      return 1;
+    }
+    if (this.prioridade.toString() == 'Media') {
+      return 2;
+    } else {
+      return 3;
+    }
+  }
 }
