@@ -150,6 +150,7 @@ class _NovaDisciplinaState extends State<NovaDisciplina> {
         Container(
           margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
           child: TextField(
+            key : Key('nome'),
             decoration: InputDecoration(
                 border: OutlineInputBorder(), labelText: 'Nome da Disciplina'),
             controller: nomeDisciplina,
@@ -158,6 +159,7 @@ class _NovaDisciplinaState extends State<NovaDisciplina> {
         Container(
           margin: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
           child: TextField(
+            key : Key('cod'),
             decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Codigo da disciplina'),
