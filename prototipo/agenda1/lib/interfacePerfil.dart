@@ -4,6 +4,20 @@ import 'package:flutter/rendering.dart';
 import 'utilitarios.dart';
 import 'dataBase.dart';
 
+
+class CurrentLevelValidator {
+  static int calculateLevel(int xp, List level){
+    //Calcula o nivel atual com base no xp
+    for(var i = 1; i < level.length;i++){
+      if(xp >= level[i-1] && xp < level[i]){
+        return  i-1;
+      }
+    }
+    return 0;
+  }
+}
+
+
 class InterfacePerfil extends StatefulWidget {
   final int idUsuario;
   InterfacePerfil(this.idUsuario);
@@ -206,9 +220,10 @@ class _InterfacePerfilState extends State<InterfacePerfil> {
     var progress;
     //Preenchendo o vetor com as informacoes sobre cada nivel
     for(var i = 1; i < level.length;i++){
-      var aux = (i-1)*0.10;
+      var aux = level[i-1]*0.10;
       level[i] = (i * 100) + (aux.toInt());
     }
+    print(level);
     //Calcula o nivel atual com base no xp
     for(var i = 1; i < level.length;i++){
       if(xp >= level[i-1] && xp < level[i]){
@@ -217,7 +232,7 @@ class _InterfacePerfilState extends State<InterfacePerfil> {
     }
     //Calcula a porcentagem de progresso do nivel atual com base no xp
     progress = xp/(level[trueLevel + 1]);
-    currentLevel = trueLevel;
+    currentLevel = CurrentLevelValidator.calculateLevel(xp, level);
     levelProgress = progress;
 
   }
