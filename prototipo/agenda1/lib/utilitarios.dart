@@ -15,7 +15,7 @@ import 'main.dart';
 
 Widget gaveta(BuildContext context,int idUsuario) {
   return Drawer(
-
+  key: Key('gaveta'),
     child: ListView(
       padding: EdgeInsets.zero,
       children: <Widget>[

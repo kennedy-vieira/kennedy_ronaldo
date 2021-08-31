@@ -10,18 +10,17 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-
   int idUsuario = -1;
 
-  void carregaUsuario() async{
-    idUsuario =await dbController().getIdUsuarioAtual();
+  void carregaUsuario() async {
+    idUsuario = await dbController().getIdUsuarioAtual();
   }
 
   @override
   Widget build(BuildContext context) {
     carregaUsuario();
 
-    if(idUsuario == -1)
+    if (idUsuario == -1)
       return MaterialApp(
           title: 'Agenda',
           theme: ThemeData(
@@ -33,9 +32,8 @@ class MyApp extends StatelessWidget {
             accentIconTheme: IconThemeData(color: Colors.black),
             dividerColor: Colors.black12,
           ),
-          home : InterfaceBemVindo()
-      );
-    else{
+          home: InterfaceBemVindo());
+    else {
       return MaterialApp(
         title: 'Agenda',
         // theme: ThemeData(
@@ -55,14 +53,18 @@ class MyApp extends StatelessWidget {
           accentIconTheme: IconThemeData(color: Colors.black),
           dividerColor: Colors.black12,
         ),
-        home: MyHomePage(title: 'Página Inicial',idUsuario: idUsuario,),
+        home: MyHomePage(
+          title: 'Página Inicial',
+          idUsuario: idUsuario,
+        ),
       );
     }
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title, required this.idUsuario}) : super(key: key);
+  MyHomePage({Key? key, required this.title, required this.idUsuario})
+      : super(key: key);
 
   final String title;
   final int idUsuario;
@@ -85,26 +87,26 @@ class _MyHomePageState extends State<MyHomePage> {
     carregaUsuario();
   }
 
-  void carregaUsuario() async{
-    usuarios =await dbController().getIdUsuarioAtual();
+  void carregaUsuario() async {
+    usuarios = await dbController().getIdUsuarioAtual();
   }
 
   void carregaListas() async {
-
     var auxAtividades = await dbController().getAtividades(idUsuario);
     var auxAtividadesOrdenadas = await ordenaAtividades(auxAtividades);
+
     setState(() {
       atividades = auxAtividadesOrdenadas;
       atividadePrincipal = auxAtividadesOrdenadas[0];
     });
   }
 
-  Future<List<Atividade>> ordenaAtividades(List<Atividade> atividades) async{
+  Future<List<Atividade>> ordenaAtividades(List<Atividade> atividades) async {
     List<Atividade> atividadesDesordenadas = atividades;
-    atividadesDesordenadas.sort((Atividade a , Atividade b)=> a.getPrioridadeint().compareTo(b.getPrioridadeint()));
+    atividadesDesordenadas.sort((Atividade a, Atividade b) =>
+        a.getPrioridadeint().compareTo(b.getPrioridadeint()));
     return atividadesDesordenadas;
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      endDrawer: gaveta(context,idUsuario),
+      endDrawer: gaveta(context, idUsuario),
       body: Center(
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
@@ -124,7 +126,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text(formatSelectedDate(DateTime.now().toString()),
+                  Text(
+                    formatSelectedDate(DateTime.now().toString()),
                     style: TextStyle(
                       color: Colors.black.withOpacity(0.8),
                       fontSize: 30.0,
@@ -151,7 +154,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Container(
               decoration: BoxDecoration(
-                border: Border.all(color: Colors.black,width: 3),
+                border: Border.all(color: Colors.black, width: 3),
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -171,33 +174,32 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-
-  List<Widget> getAtividadePrincipal(){
-    if(atividadePrincipal == null){
+  List<Widget> getAtividadePrincipal() {
+    if (atividadePrincipal == null) {
       return [];
-    }else{
-      return   [
+    } else {
+      return [
         Text('Titulo : ' + atividadePrincipal.titulo.toString()),
         Text('Data de entrega : ' +
             formatSelectedDate(atividadePrincipal.dataDeEntrega)),
-        Text(
-            'Prioridade : ' + atividadePrincipal.prioridade.toString()),
+        Text('Prioridade : ' + atividadePrincipal.prioridade.toString()),
         Text('Status : ' + atividadePrincipal.status.toString()),
         Text('Codigo da Disciplina : ' +
             atividadePrincipal.idDisciplina.toString()),
         Text('Valor da atividade : ' +
             atividadePrincipal.notaAtividade.toString()),
-        Text('Nota obtida : ' +
-            atividadePrincipal.notaAlcancada.toString()),
-        Text('Descrição : ' + (atividadePrincipal.descricao.toString() == 'null' ? ' ' :atividadePrincipal.descricao.toString() )),
+        Text('Nota obtida : ' + atividadePrincipal.notaAlcancada.toString()),
+        Text('Descrição : ' +
+            (atividadePrincipal.descricao.toString() == 'null'
+                ? ' '
+                : atividadePrincipal.descricao.toString())),
       ];
     }
   }
 
-
-  String formatSelectedDate(String aa){
+  String formatSelectedDate(String aa) {
     DateTime aaa = DateTime.parse(aa);
-    var data ='${aaa.day}/${aaa.month}/${aaa.year}';
+    var data = '${aaa.day}/${aaa.month}/${aaa.year}';
     return data;
   }
 }
